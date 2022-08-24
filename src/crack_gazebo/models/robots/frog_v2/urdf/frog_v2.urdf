@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="frog_v2">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00299960531602334 0.000925780417924291 0.00663813217087633"
+        rpy="0 0 0" />
+      <mass
+        value="1.05255015891803" />
+      <inertia
+        ixx="0.00192645755655797"
+        ixy="1.37806252369402E-06"
+        ixz="1.18685261964661E-07"
+        iyy="0.00185880785608247"
+        iyz="1.54609269435821E-09"
+        izz="0.00363113089916627" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.52 0.52 0.16"/>
+      </geometry>
+      <!-- <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/base_link_col.STL" />
+      </geometry> -->
+    </collision>
+  </link>
+  <link
+    name="prop_1">
+    <inertial>
+      <origin
+        xyz="-5.65744966205817E-05 1.15709824216048E-05 -0.000132588817387688"
+        rpy="0 0 0" />
+      <mass
+        value="0.033480102422425" />
+      <inertia
+        ixx="0.000185259926751763"
+        ixy="-5.32093457830838E-05"
+        ixz="2.24429568646842E-07"
+        iyy="1.76760777869009E-05"
+        iyz="4.06354928790603E-07"
+        izz="0.000202707482260549" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/prop_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/prop_1_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_1_joint"
+    type="revolute">
+    <origin
+      xyz="0.23937 -0.23937 0.073136"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004" />
+  </joint>
+  <link
+    name="prop_2">
+    <inertial>
+      <origin
+        xyz="-5.66044885891293E-05 1.15949242203428E-05 -0.000132594734223196"
+        rpy="0 0 0" />
+      <mass
+        value="0.0334799929695856" />
+      <inertia
+        ixx="0.000185259920507297"
+        ixy="-5.32093515361335E-05"
+        ixz="2.24430513355787E-07"
+        iyy="1.76760743208164E-05"
+        iyz="4.06353674849625E-07"
+        izz="0.000202707472860171" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/prop_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/prop_2_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_2_joint"
+    type="revolute">
+    <origin
+      xyz="-0.23937 -0.23937 0.073136"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004" />
+  </joint>
+  <link
+    name="prop_3">
+    <inertial>
+      <origin
+        xyz="-5.66044881094574E-05 1.15949255357628E-05 -0.000132594734251062"
+        rpy="0 0 0" />
+      <mass
+        value="0.0334799929697736" />
+      <inertia
+        ixx="0.000185259920508852"
+        ixy="-5.32093515367757E-05"
+        ixz="2.24430513413887E-07"
+        iyy="1.76760743210929E-05"
+        iyz="4.06353674978187E-07"
+        izz="0.000202707472861994" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/prop_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/prop_3_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_3_joint"
+    type="revolute">
+    <origin
+      xyz="-0.23937 0.23937 0.073137"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004" />
+  </joint>
+  <link
+    name="prop_4">
+    <inertial>
+      <origin
+        xyz="-5.66044880474792E-05 1.1594925442393E-05 -0.000132594734234714"
+        rpy="0 0 0" />
+      <mass
+        value="0.0334799929695797" />
+      <inertia
+        ixx="0.000185259920507247"
+        ixy="-5.32093515361025E-05"
+        ixz="2.24430513407408E-07"
+        iyy="1.76760743208018E-05"
+        iyz="4.06353674961871E-07"
+        izz="0.000202707472860101" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/prop_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/prop_4_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_4_joint"
+    type="revolute">
+    <origin
+      xyz="0.23937 0.23937 0.073137"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004" />
+  </joint>
+  <link
+    name="fpv_cam">
+    <inertial>
+      <origin
+        xyz="-0.000284522561700459 2.24478693088385E-05 -2.47604221920578E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0030555548772708" />
+      <inertia
+        ixx="1.19469208624835E-07"
+        ixy="5.01779840354612E-11"
+        ixz="1.07145862877786E-09"
+        iyy="6.57719949191097E-08"
+        iyz="7.87453663944317E-09"
+        izz="7.45619479559184E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/fpv_cam.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/fpv_cam.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fpv_cam_joint"
+    type="revolute">
+    <origin
+      xyz="0.092345 -1.7472E-05 -0.015"
+      rpy="0 0.017453 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fpv_cam" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.61087"
+      upper="1.5708"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004" />
+  </joint>
+  <link
+    name="D435">
+    <inertial>
+      <origin
+        xyz="-0.000102529599412184 0.0004096441357057 0.000114713525274722"
+        rpy="0 0 0" />
+      <mass
+        value="0.0553981578894608" />
+      <inertia
+        ixx="4.30081410924908E-05"
+        ixy="3.16330256669316E-07"
+        ixz="-1.37235008905661E-07"
+        iyy="5.20161056831453E-06"
+        iyz="1.91602335582947E-08"
+        izz="4.24188446099882E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/D435.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="model://robots/frog_v2/meshes/D435.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="D435_joint"
+    type="revolute">
+    <origin
+      xyz="0.052 0 0.0186"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="D435" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.61087"
+      upper="1.5708"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004" />
+  </joint>
+</robot>

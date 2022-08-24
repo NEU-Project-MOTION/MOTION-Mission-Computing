@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="UHL_V2_SIM_R01.SLDASM">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00026489 -4.8072E-05 -0.12408"
+        rpy="0 0 0" />
+      <mass
+        value="15.007" />
+      <inertia
+        ixx="0.79653"
+        ixy="9.3966E-08"
+        ixz="-2.6473E-07"
+        iyy="0.69508"
+        iyz="-5.4034E-08"
+        izz="1.4565" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="prop_1">
+    <inertial>
+      <origin
+        xyz="1.8079E-07 -5.2984E-06 0.0028837"
+        rpy="0 0 0" />
+      <mass
+        value="0.24923" />
+      <inertia
+        ixx="0.0072919"
+        ixy="0.00019978"
+        ixz="-1.1958E-11"
+        iyy="6.0017E-05"
+        iyz="1.5169E-09"
+        izz="0.0073408" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_1_joint"
+    type="revolute">
+    <origin
+      xyz="1.7088 0 0.031899"
+      rpy="0 0 0.53812" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_2">
+    <inertial>
+      <origin
+        xyz="1.7903E-07 -5.3127E-06 0.0028837"
+        rpy="0 0 0" />
+      <mass
+        value="0.24923" />
+      <inertia
+        ixx="0.0072919"
+        ixy="0.00019978"
+        ixz="1.0345E-11"
+        iyy="6.0018E-05"
+        iyz="1.4659E-09"
+        izz="0.0073408" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_2_joint"
+    type="revolute">
+    <origin
+      xyz="-1.7088 0 0.031899"
+      rpy="0 0 1.1627" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_3">
+    <inertial>
+      <origin
+        xyz="-1.8097E-07 -1.9978E-06 0.0028836"
+        rpy="0 0 0" />
+      <mass
+        value="0.24924" />
+      <inertia
+        ixx="0.0072919"
+        ixy="-0.00019976"
+        ixz="-7.4492E-11"
+        iyy="6.0015E-05"
+        iyz="-6.1128E-10"
+        izz="0.0073409" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_3_joint"
+    type="revolute">
+    <origin
+      xyz="0.87065 -0.87065 0.031899"
+      rpy="0 0 -3.0451" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_4">
+    <inertial>
+      <origin
+        xyz="-1.2187 -0.17421 -0.10275"
+        rpy="0 0 0" />
+      <mass
+        value="21.379" />
+      <inertia
+        ixx="14.927"
+        ixy="0.0026372"
+        ixz="0.00017228"
+        iyy="14.895"
+        iyz="-0.00020566"
+        izz="28.858" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_4_joint"
+    type="revolute">
+    <origin
+      xyz="-0.87065 -0.87065 0.031899"
+      rpy="0 0 -2.4981" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_5">
+    <inertial>
+      <origin
+        xyz="-6.6025E-09 2.1978E-08 0.0028836"
+        rpy="0 0 0" />
+      <mass
+        value="0.24923" />
+      <inertia
+        ixx="0.0072919"
+        ixy="-0.00019976"
+        ixz="1.3989E-11"
+        iyy="6.0014E-05"
+        iyz="-6.0697E-11"
+        izz="0.0073408" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_5_joint"
+    type="revolute">
+    <origin
+      xyz="0.87065 0.87065 0.031899"
+      rpy="0 0 -2.952" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_6">
+    <inertial>
+      <origin
+        xyz="-6.2827E-09 2.8485E-08 0.0028836"
+        rpy="0 0 0" />
+      <mass
+        value="0.24923" />
+      <inertia
+        ixx="0.0072919"
+        ixy="-0.00019976"
+        ixz="1.4081E-11"
+        iyy="6.0014E-05"
+        iyz="-5.8528E-11"
+        izz="0.0073408" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_6_joint"
+    type="revolute">
+    <origin
+      xyz="-0.87065 0.87065 0.031899"
+      rpy="0 0 -2.7347" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_7">
+    <inertial>
+      <origin
+        xyz="5.0909E-06 1.5637E-07 0.0028837"
+        rpy="0 0 0" />
+      <mass
+        value="0.24923" />
+      <inertia
+        ixx="6.0017E-05"
+        ixy="-0.00019978"
+        ixz="-1.6413E-09"
+        iyy="0.0072919"
+        iyz="-1.3553E-12"
+        izz="0.0073408" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_7_joint"
+    type="revolute">
+    <origin
+      xyz="0 1.7088 0.031899"
+      rpy="0 0 0.059525" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_7" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_8">
+    <inertial>
+      <origin
+        xyz="-1.3559E-07 -1.7588E-06 0.0028837"
+        rpy="0 0 0" />
+      <mass
+        value="0.24923" />
+      <inertia
+        ixx="0.0072919"
+        ixy="0.00019978"
+        ixz="-1.6201E-10"
+        iyy="6.0018E-05"
+        iyz="2.4597E-09"
+        izz="0.0073408" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_8_joint"
+    type="revolute">
+    <origin
+      xyz="0 -1.7088 0.031899"
+      rpy="0 0 0.92604" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_8" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_9">
+    <inertial>
+      <origin
+        xyz="0.56653 0.66107 -0.10275"
+        rpy="0 0 0" />
+      <mass
+        value="0.24923" />
+      <inertia
+        ixx="14.927"
+        ixy="0.00051624"
+        ixz="-0.0001585"
+        iyy="14.895"
+        iyz="0.00021646"
+        izz="28.858" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_9_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.87065 0.031899"
+      rpy="0 0 0.70876" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_9" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_10">
+    <inertial>
+      <origin
+        xyz="-0.51098 0.70497 -0.10275"
+        rpy="0 0 0" />
+      <mass
+        value="0.24923" />
+      <inertia
+        ixx="14.896"
+        ixy="0.0069251"
+        ixz="0.00024738"
+        iyy="14.926"
+        iyz="0.00010383"
+        izz="28.858" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_10.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V2_SIM_R01.SLDASM/meshes/prop_10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_10_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.87065 0.031899"
+      rpy="0 0 2.5142" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_10" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+</robot>

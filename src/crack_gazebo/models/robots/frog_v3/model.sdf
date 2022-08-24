@@ -1,0 +1,335 @@
+<sdf version='1.7'>
+  <model name='Frog_V3.0_SIM_R01.SLDASM'>
+    <link name='base_link'>
+      <inertial>
+        <pose>-0.007264 -0.000319 0.013744 0 -0 0</pose>
+        <mass>1.88736</mass>
+        <inertia>
+          <ixx>0.00320015</ixx>
+          <ixy>4.13447e-06</ixy>
+          <ixz>4.25707e-06</ixz>
+          <iyy>0.00318288</iyy>
+          <iyz>2.56983e-05</iyz>
+          <izz>0.00602951</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__fc_collision_1'>
+        <pose>0 0 0.004619 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/fc.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__gps_collision_2'>
+        <pose>0 -0.048 0.041102 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/gps.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__fc_visual_1'>
+        <pose>0 0 0.004619 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/fc.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__gps_visual_2'>
+        <pose>0 -0.048 0.041102 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/gps.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_1_joint' type='revolute'>
+      <pose relative_to='base_link'>0.23934 -0.23941 0.071859 0 0 -0.74432</pose>
+      <parent>base_link</parent>
+      <child>prop_1</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_1'>
+      <pose relative_to='prop_1_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>4e-06 -5e-06 5.8e-05 0 -0 0</pose>
+        <mass>0.0334721</mass>
+        <inertia>
+          <ixx>2.21817e-06</ixx>
+          <ixy>1.38903e-06</ixy>
+          <ixz>-4.52293e-07</ixz>
+          <iyy>0.000200659</iyy>
+          <iyz>1.05225e-07</iyz>
+          <izz>0.000202649</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_2_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.23941 0.23934 0.071859 0 0 -0.775</pose>
+      <parent>base_link</parent>
+      <child>prop_2</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_2'>
+      <pose relative_to='prop_2_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>4e-06 -5e-06 5.8e-05 0 -0 0</pose>
+        <mass>0.0334721</mass>
+        <inertia>
+          <ixx>2.21817e-06</ixx>
+          <ixy>1.38903e-06</ixy>
+          <ixz>-4.52293e-07</ixz>
+          <iyy>0.000200659</iyy>
+          <iyz>1.05225e-07</iyz>
+          <izz>0.000202649</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_3_joint' type='revolute'>
+      <pose relative_to='base_link'>0.239337 0.239411 0.071859 -0 -0.001844 -2.39705</pose>
+      <parent>base_link</parent>
+      <child>prop_3</child>
+      <axis>
+        <xyz>-0.001844 0 -0.999998</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_3'>
+      <pose relative_to='prop_3_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-4e-06 -5e-06 5.8e-05 0 -0 0</pose>
+        <mass>0.0376118</mass>
+        <inertia>
+          <ixx>2.49477e-06</ixx>
+          <ixy>-1.50954e-06</ixy>
+          <ixz>9.23535e-07</ixz>
+          <iyy>0.000225469</iyy>
+          <iyz>1.20921e-07</iyz>
+          <izz>0.000227701</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_4_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.23941 -0.23934 0.071859 -0 -0.001844 -2.3664</pose>
+      <parent>base_link</parent>
+      <child>prop_4</child>
+      <axis>
+        <xyz>-0.001844 0 -1</xyz>
+        <limit>
+          <lower>-1e-16</lower>
+          <upper>1e-16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_4'>
+      <pose relative_to='prop_4_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-4e-06 -5e-06 5.8e-05 0 -0 0</pose>
+        <mass>0.0376118</mass>
+        <inertia>
+          <ixx>2.49477e-06</ixx>
+          <ixy>-1.50954e-06</ixy>
+          <ixz>9.23535e-07</ixz>
+          <iyy>0.000225469</iyy>
+          <iyz>1.20921e-07</iyz>
+          <izz>0.000227701</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_4_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_4_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='realsense_joint' type='revolute'>
+      <pose relative_to='base_link'>0.052 0 0.0205 0 -0.55625 0</pose>
+      <parent>base_link</parent>
+      <child>realsense</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='realsense'>
+      <pose relative_to='realsense_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.000257 0.000379 -8e-05 0 -0 0</pose>
+        <mass>0.0820213</mass>
+        <inertia>
+          <ixx>5.67905e-05</ixx>
+          <ixy>4.63673e-07</ixy>
+          <ixz>-1.20817e-07</ixz>
+          <iyy>7.62815e-06</iyy>
+          <iyz>1.39366e-08</iyz>
+          <izz>5.61631e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='realsense_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/realsense.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='realsense_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Frog_V3.0_SIM_R01.SLDASM/meshes/realsense.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

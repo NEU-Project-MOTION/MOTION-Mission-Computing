@@ -1,0 +1,63 @@
+
+
+<%
+  scaler
+  name
+  x 
+  y 
+  z
+%>
+
+  <model name=<%="pine_tree_"+name%>>
+    <static>true</static>
+    <link name="link">
+      <pose><%=x%> <%=y%> <%=z%> 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://pine_tree/meshes/pine_tree.dae</uri>
+            <scale><%=scaler%> <%=scaler%> <%=scaler%></scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="branch">
+        <pose><%=x%> <%=y%> <%=z%> 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pine_tree/meshes/pine_tree.dae</uri>
+            <submesh>
+              <name>Branch</name>
+            </submesh>
+            <scale><%=scaler%> <%=scaler%> <%=scaler%></scale>
+          </mesh>
+        </geometry>
+        <material>
+        <script>
+          <uri>model://pine_tree/materials/scripts/</uri>
+          <uri>model://pine_tree/materials/textures/</uri>
+          <name>PineTree/Branch</name>
+        </script>
+        </material>
+      </visual>
+      <visual name="bark">
+        <pose><%=x%> <%=y%> <%=z%> 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pine_tree/meshes/pine_tree.dae</uri>
+            <submesh>
+              <name>Bark</name>
+            </submesh>
+            <scale><%=scaler%> <%=scaler%> <%=scaler%></scale>
+          </mesh>
+        </geometry>
+        <material>
+        <script>
+          <uri>model://pine_tree/materials/scripts/</uri>
+          <uri>model://pine_tree/materials/textures/</uri>
+          <name>PineTree/Bark</name>
+        </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+

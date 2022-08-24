@@ -1,0 +1,831 @@
+<sdf version='1.7'>
+  <model name='UHL_V6_collision_SIM_V03.SLDASM'>
+    <link name='base_link_col'>
+      <inertial>
+        <pose>0 0.000123 -0.14229 0 -0 0</pose>
+        <mass>3900.6</mass>
+        <inertia>
+          <ixx>2835.7</ixx>
+          <ixy>6.7307e-14</ixy>
+          <ixz>-1.9911e-14</ixz>
+          <iyy>2835.5</iyy>
+          <iyz>0.017642</iyz>
+          <izz>5515.3</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/base_link_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/base_link_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_1_col' type='revolute'>
+      <pose relative_to='base_link_col'>1.0378 -0.42844 0.1217 0 -0 1.5708</pose>
+      <parent>base_link_col</parent>
+      <child>prop_1_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_1_col'>
+      <pose relative_to='prop_1_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>3.6413</mass>
+        <inertia>
+          <ixx>0.0033917</ixx>
+          <ixy>8.1992e-16</ixy>
+          <ixz>-7.0271e-19</ixz>
+          <iyy>0.17721</iyy>
+          <iyz>-5.0088e-20</iyz>
+          <izz>0.17896</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_1_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_1_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_1_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_1_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_2_col' type='revolute'>
+      <pose relative_to='base_link_col'>-1.0378 0.42844 0.1217 0 -0 1.4342</pose>
+      <parent>base_link_col</parent>
+      <child>prop_2_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_2_col'>
+      <pose relative_to='prop_2_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>3.64132</mass>
+        <inertia>
+          <ixx>0.00339171</ixx>
+          <ixy>7.78972e-16</ixy>
+          <ixz>3.77845e-19</ixz>
+          <iyy>0.177211</iyy>
+          <iyz>-6.25654e-20</iyz>
+          <izz>0.178962</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_2_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_2_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_2_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_2_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_3_col' type='revolute'>
+      <pose relative_to='base_link_col'>0.43532 -1.0378 0.093 0 0 -1.468</pose>
+      <parent>base_link_col</parent>
+      <child>prop_3_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_3_col'>
+      <pose relative_to='prop_3_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 -0 0 0 -0 0</pose>
+        <mass>3.64132</mass>
+        <inertia>
+          <ixx>0.00339171</ixx>
+          <ixy>8.31963e-16</ixy>
+          <ixz>-2.78302e-19</ixz>
+          <iyy>0.177211</iyy>
+          <iyz>-3.68188e-21</iyz>
+          <izz>0.178962</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_3_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_3_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_3_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_3_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_4_col' type='revolute'>
+      <pose relative_to='base_link_col'>-1.03778 -0.428443 0.121702 0 0 -1.50178</pose>
+      <parent>base_link_col</parent>
+      <child>prop_4_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_4_col'>
+      <pose relative_to='prop_4_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>3.64132</mass>
+        <inertia>
+          <ixx>0.00339171</ixx>
+          <ixy>8.17231e-16</ixy>
+          <ixz>1.58132e-18</ixz>
+          <iyy>0.177211</iyy>
+          <iyz>-2.35559e-19</iyz>
+          <izz>0.178962</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_4_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_4_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_4_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_4_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_5_col' type='revolute'>
+      <pose relative_to='base_link_col'>1.0378 0.42844 0.1217 0 -0 2.1692</pose>
+      <parent>base_link_col</parent>
+      <child>prop_5_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_5_col'>
+      <pose relative_to='prop_5_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>3.64132</mass>
+        <inertia>
+          <ixx>0.00339171</ixx>
+          <ixy>8.04478e-16</ixy>
+          <ixz>-4.54334e-19</ixz>
+          <iyy>0.177211</iyy>
+          <iyz>3.99908e-19</iyz>
+          <izz>0.178962</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_5_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_5_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_5_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_5_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_6_col' type='revolute'>
+      <pose relative_to='base_link_col'>-0.435324 1.03778 0.093 0 0 -1.88686</pose>
+      <parent>base_link_col</parent>
+      <child>prop_6_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_6_col'>
+      <pose relative_to='prop_6_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 -0 0 -0 0</pose>
+        <mass>3.64132</mass>
+        <inertia>
+          <ixx>0.00339171</ixx>
+          <ixy>8.32667e-16</ixy>
+          <ixz>2.90728e-18</ixz>
+          <iyy>0.177211</iyy>
+          <iyz>6.07748e-19</iyz>
+          <izz>0.178962</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_6_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_6_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_6_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_6_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_7_col' type='revolute'>
+      <pose relative_to='base_link_col'>0.435324 1.03778 0.093 0 -0 1.4743</pose>
+      <parent>base_link_col</parent>
+      <child>prop_7_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_7_col'>
+      <pose relative_to='prop_7_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 -0 0 0 -0 0</pose>
+        <mass>3.64132</mass>
+        <inertia>
+          <ixx>0.00339171</ixx>
+          <ixy>8.48605e-16</ixy>
+          <ixz>-5.63013e-20</ixz>
+          <iyy>0.177211</iyy>
+          <iyz>-6.49134e-20</iyz>
+          <izz>0.178962</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_7_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_7_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_7_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_7_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_8_col' type='revolute'>
+      <pose relative_to='base_link_col'>-0.435324 -1.03778 0.093 0 -0 1.5708</pose>
+      <parent>base_link_col</parent>
+      <child>prop_8_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_8_col'>
+      <pose relative_to='prop_8_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>3.64132</mass>
+        <inertia>
+          <ixx>0.00339171</ixx>
+          <ixy>8.22521e-16</ixy>
+          <ixz>2.99608e-18</ixz>
+          <iyy>0.177211</iyy>
+          <iyz>2.04385e-19</iyz>
+          <izz>0.178962</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_8_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_8_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_8_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_8_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_1_col' type='revolute'>
+      <pose relative_to='base_link_col'>-0.320858 -0.154626 0.093325 1.5708 -0.632227 -2.35619</pose>
+      <parent>base_link_col</parent>
+      <child>roller_1_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_1_col'>
+      <pose relative_to='roller_1_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>2.06795e-24</ixy>
+          <ixz>0</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>1.29454e-22</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_1_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_1_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_1_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_1_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_2_col' type='revolute'>
+      <pose relative_to='base_link_col'>-0.154626 -0.320858 0.093325 1.5708 -0.538795 0.785398</pose>
+      <parent>base_link_col</parent>
+      <child>roller_2_col</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_2_col'>
+      <pose relative_to='roller_2_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 -0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>-1.24077e-24</ixy>
+          <ixz>-3.30872e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>-1.65436e-24</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_2_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_2_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_2_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_2_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_3_col' type='revolute'>
+      <pose relative_to='base_link_col'>0.154626 -0.320858 0.093325 1.5708 -1.39642 -0.785398</pose>
+      <parent>base_link_col</parent>
+      <child>roller_3_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_3_col'>
+      <pose relative_to='roller_3_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>-8.27181e-25</ixy>
+          <ixz>-1.44757e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>6.20385e-22</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_3_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_3_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_3_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_3_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_4_col' type='revolute'>
+      <pose relative_to='base_link_col'>0.32086 -0.15463 0.093325 1.5708 -0 2.3562</pose>
+      <parent>base_link_col</parent>
+      <child>roller_4_col</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_4_col'>
+      <pose relative_to='roller_4_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>-4.7768e-24</ixy>
+          <ixz>-8.27181e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>1.83461e-24</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_4_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_4_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_4_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_4_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_5_col' type='revolute'>
+      <pose relative_to='base_link_col'>0.32086 0.15463 0.093325 1.5708 0.39449 0.7854</pose>
+      <parent>base_link_col</parent>
+      <child>roller_5_col</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_5_col'>
+      <pose relative_to='roller_5_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>8.27181e-25</ixy>
+          <ixz>-1.65436e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>1.32349e-22</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_5_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_5_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_5_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_5_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_6_col' type='revolute'>
+      <pose relative_to='base_link_col'>0.15463 0.32086 0.093325 1.5708 -0 -2.3562</pose>
+      <parent>base_link_col</parent>
+      <child>roller_6_col</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_6_col'>
+      <pose relative_to='roller_6_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>1.86037e-25</ixy>
+          <ixz>0</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>-1.04824e-24</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_6_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_6_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_6_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_6_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_7_col' type='revolute'>
+      <pose relative_to='base_link_col'>-0.15463 0.32086 0.093325 1.5708 -0 2.3562</pose>
+      <parent>base_link_col</parent>
+      <child>roller_7_col</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_7_col'>
+      <pose relative_to='roller_7_col'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>-1.19759e-24</ixy>
+          <ixz>-4.96308e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>-1.51127e-24</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_7_col_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_7_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_7_col_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_7_col.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

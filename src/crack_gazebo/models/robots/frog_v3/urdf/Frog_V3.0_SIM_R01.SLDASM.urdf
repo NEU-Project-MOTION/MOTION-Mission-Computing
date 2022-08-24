@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Frog_V3.0_SIM_R01.SLDASM">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00746714892145711 0.000101263909551571 0.013470764593681"
+        rpy="0 0 0" />
+      <mass
+        value="1.8402479026787" />
+      <inertia
+        ixx="0.00313798535567005"
+        ixy="-1.71245069176172E-06"
+        ixz="7.96785501626807E-06"
+        iyy="0.00315221354388243"
+        iyz="-2.85613299130557E-07"
+        izz="0.0059743667116248" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="prop_1">
+    <inertial>
+      <origin
+        xyz="4.30866641737415E-06 -5.46860993627662E-06 5.83082354992659E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0334721011950379" />
+      <inertia
+        ixx="2.21817136515063E-06"
+        ixy="1.38902812985113E-06"
+        ixz="-4.52292593982297E-07"
+        iyy="0.000200658967863161"
+        iyz="1.05224714753585E-07"
+        izz="0.000202648635105884" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_1_joint"
+    type="revolute">
+    <origin
+      xyz="0.23934 -0.23941 0.071859"
+      rpy="0 0 -0.74432" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E-16"
+      upper="1E-16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_2">
+    <inertial>
+      <origin
+        xyz="4.29687762470987E-06 -5.46662786976571E-06 5.83078594446895E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0334720839913486" />
+      <inertia
+        ixx="2.21817141736547E-06"
+        ixy="1.38902826887493E-06"
+        ixz="-4.52292514499402E-07"
+        iyy="0.000200658968323084"
+        iyz="1.05224737442908E-07"
+        izz="0.000202648635592273" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_2_joint"
+    type="revolute">
+    <origin
+      xyz="-0.23941 0.23934 0.071859"
+      rpy="0 0 -0.775" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E-16"
+      upper="1E-16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_3">
+    <inertial>
+      <origin
+        xyz="-4.25021240896273E-06 -5.37772488140575E-06 5.84191593586136E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0376118140885375" />
+      <inertia
+        ixx="2.49477487195538E-06"
+        ixy="-1.50954264264551E-06"
+        ixz="9.23535411255895E-07"
+        iyy="0.000225468715055165"
+        iyz="1.20920529901346E-07"
+        izz="0.000227701423898592" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_3_joint"
+    type="revolute">
+    <origin
+      xyz="0.239337346042985 0.239410846937638 0.0718588543052512"
+      rpy="0 -0.00184427735603198 -2.39705133358382" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_3" />
+    <axis
+      xyz="-0.00184427631052393 0 -0.999998299320978" />
+    <limit
+      lower="-1E-16"
+      upper="1E-16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_4">
+    <inertial>
+      <origin
+        xyz="-4.25042782359331E-06 -5.37772714420681E-06 5.8419186728928E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0376118127636403" />
+      <inertia
+        ixx="2.4947748917598E-06"
+        ixy="-1.50954297762146E-06"
+        ixz="9.23535104651057E-07"
+        iyy="0.000225468715070021"
+        iyz="1.20920542079402E-07"
+        izz="0.000227701423916326" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/prop_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_4_joint"
+    type="revolute">
+    <origin
+      xyz="-0.23941 -0.23934 0.071859"
+      rpy="0 -0.0018443 -2.3664" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_4" />
+    <axis
+      xyz="-0.0018443 0 -1" />
+    <limit
+      lower="-1E-16"
+      upper="1E-16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="gps">
+    <inertial>
+      <origin
+        xyz="9.7064011314786E-05 -6.82328129185394E-06 0.00563528035310996"
+        rpy="0 0 0" />
+      <mass
+        value="0.0163721534352637" />
+      <inertia
+        ixx="2.10443301154107E-06"
+        ixy="-2.07567557370655E-09"
+        ixz="2.98504109627225E-09"
+        iyy="2.07650976235007E-06"
+        iyz="-2.2872797599557E-10"
+        izz="3.83456162400061E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/gps.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/gps.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gps_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.048 0.041102"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gps" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="fc">
+    <inertial>
+      <origin
+        xyz="0.00100082423387965 -6.78236874559005E-05 0.00790349996764733"
+        rpy="0 0 0" />
+      <mass
+        value="0.0307388173243356" />
+      <inertia
+        ixx="4.49473686903945E-06"
+        ixy="8.52233138439445E-09"
+        ixz="5.43860449263595E-08"
+        iyy="7.52368168918166E-06"
+        iyz="3.77960931965397E-09"
+        izz="1.0686045749877E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/fc.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/fc.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fc_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.0046194"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fc" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="realsense">
+    <inertial>
+      <origin
+        xyz="0.000257070015100995 0.000378633696991973 -7.95551801888901E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0820213467082125" />
+      <inertia
+        ixx="5.67904567476993E-05"
+        ixy="4.63673457523838E-07"
+        ixz="-1.20816906911674E-07"
+        iyy="7.62815495029643E-06"
+        iyz="1.39365721413148E-08"
+        izz="5.61630703281733E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/realsense.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Frog_V3.0_SIM_R01.SLDASM/meshes/realsense.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="realsense_joint"
+    type="continuous">
+    <origin
+      xyz="0.052 0 0.0205"
+      rpy="0 -0.55625 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="realsense" />
+    <axis
+      xyz="0 0 -1" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+</robot>

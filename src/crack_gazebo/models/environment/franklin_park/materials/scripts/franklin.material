@@ -1,0 +1,15 @@
+material FranklinPark
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture franklin.png
+        scale 1.0 1.0
+      }
+    }
+  }
+}

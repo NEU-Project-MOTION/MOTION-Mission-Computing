@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="franklin_park">
+    <static>true</static>
+    <link name="ground">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>5000 5000</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+
+      <visual name="ground">
+        <pose>0 0 -0.1 0 0 -1.57</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>200 200</size>
+          </plane>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://environment/franklin_park/materials/scripts</uri>
+            <uri>model://environment/franklin_park/materials/textures</uri>
+            <name>FranklinPark</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+
+    <include>
+      <name>bleachers_0</name>
+      <uri>model://environment/stadium_box</uri>
+      <pose frame=''>-5 56 -0.1 0 0 0.18</pose>
+    </include>
+
+    <include>
+      <name>bleachers_1</name>
+      <uri>model://environment/stadium_box</uri>
+      <pose frame=''>16 -55 -0.1 0 0 0.18</pose>
+    </include>
+  </model>
+</sdf>

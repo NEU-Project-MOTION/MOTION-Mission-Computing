@@ -1,0 +1,1553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="UHL_V6_SIM_R02.SLDASM">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0264506738894182 -0.00245373046267141 -0.0590946600368749"
+        rpy="0 0 0" />
+      <mass
+        value="11.7596147786551" />
+      <inertia
+        ixx="0.650120941589772"
+        ixy="-5.97710069720067E-08"
+        ixz="-3.51382463429403E-08"
+        iyy="0.638048897392889"
+        iyz="-9.71671649046655E-08"
+        izz="1.26984715423555" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="prop_1">
+    <inertial>
+      <origin
+        xyz="2.46880001997241E-08 6.20164186670991E-09 -0.0154914012834683"
+        rpy="0 0 0" />
+      <mass
+        value="0.249232604877878" />
+      <inertia
+        ixx="6.00145515664586E-05"
+        ixy="0.000199761322908613"
+        ixz="-6.17671778905485E-11"
+        iyy="0.00729190409105283"
+        iyz="-1.40904239812053E-11"
+        izz="0.00734086926048598" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_1_joint"
+    type="revolute">
+    <origin
+      xyz="1.0378 -0.42844 0.1217"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_2">
+    <inertial>
+      <origin
+        xyz="1.84152699767015E-06 -1.45054841693693E-07 -0.0154914133632591"
+        rpy="0 0 0" />
+      <mass
+        value="0.249235276546834" />
+      <inertia
+        ixx="6.00144230950099E-05"
+        ixy="0.000199765203811294"
+        ixz="3.88813303563568E-10"
+        iyy="0.00729195363127827"
+        iyz="-6.9318116689942E-11"
+        izz="0.00734091874804343" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_2_joint"
+    type="revolute">
+    <origin
+      xyz="-1.0378 0.42844 0.1217"
+      rpy="0 0 1.4342" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_3">
+    <inertial>
+      <origin
+        xyz="-3.54326872331612E-06 -2.18096833370929E-08 -0.0154913148046364"
+        rpy="0 0 0" />
+      <mass
+        value="0.249230049558826" />
+      <inertia
+        ixx="6.0016926929431E-05"
+        ixy="-0.000199772995782384"
+        ixz="1.96135652639862E-09"
+        iyy="0.00729181043889758"
+        iyz="7.5786522987082E-11"
+        izz="0.00734077707443449" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_3_joint"
+    type="revolute">
+    <origin
+      xyz="0.43532 -1.0378 0.093"
+      rpy="0 0 -1.468" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_4">
+    <inertial>
+      <origin
+        xyz="-5.0870324950214E-06 -1.5620008930739E-07 -0.0154913257307765"
+        rpy="0 0 0" />
+      <mass
+        value="0.249233088595039" />
+      <inertia
+        ixx="6.00169661219545E-05"
+        ixy="-0.000199776129339677"
+        ixz="1.67989966453435E-09"
+        iyy="0.00729185509859292"
+        iyz="6.38622868464808E-12"
+        izz="0.00734082179088184" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_4_joint"
+    type="revolute">
+    <origin
+      xyz="-1.0378 -0.42844 0.1217"
+      rpy="0 0 -1.5018" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_5">
+    <inertial>
+      <origin
+        xyz="-5.23939855412436E-06 -1.78323770638755E-07 -0.0154913242961788"
+        rpy="0 0 0" />
+      <mass
+        value="0.249232829770697" />
+      <inertia
+        ixx="6.00174726502659E-05"
+        ixy="-0.000199777120255803"
+        ixz="1.4958069936399E-09"
+        iyy="0.00729185838515748"
+        iyz="1.65353652837817E-12"
+        izz="0.00734082560976772" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_5_joint"
+    type="revolute">
+    <origin
+      xyz="1.0378 0.42844 0.1217"
+      rpy="0 0 2.1692" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_6">
+    <inertial>
+      <origin
+        xyz="-1.75909211608261E-06 1.35959075553416E-07 -0.0154913217204421"
+        rpy="0 0 0" />
+      <mass
+        value="0.249232799088925" />
+      <inertia
+        ixx="6.00176685521573E-05"
+        ixy="-0.000199777691443871"
+        ixz="2.4559867214484E-09"
+        iyy="0.00729185921474622"
+        iyz="1.62081249586996E-10"
+        izz="0.00734082662414139" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_6_joint"
+    type="revolute">
+    <origin
+      xyz="-0.43532 1.0378 0.093"
+      rpy="0 0 -1.8869" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_7">
+    <inertial>
+      <origin
+        xyz="1.90501139307742E-08 5.91636728497491E-09 -0.0154914274377035"
+        rpy="0 0 0" />
+      <mass
+        value="0.249238237129271" />
+      <inertia
+        ixx="6.00147661713791E-05"
+        ixy="0.000199769672207548"
+        ixz="-6.3776201096951E-11"
+        iyy="0.00729201942132772"
+        iyz="-1.41078504692172E-11"
+        izz="0.00734098488552737" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_7_joint"
+    type="revolute">
+    <origin
+      xyz="0.43532 1.0378 0.093"
+      rpy="0 0 1.4743" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_7" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_8">
+    <inertial>
+      <origin
+        xyz="2.77531642112194E-08 5.94437249423763E-09 -0.0154914012033843"
+        rpy="0 0 0" />
+      <mass
+        value="0.249232598295997" />
+      <inertia
+        ixx="6.00145502885598E-05"
+        ixy="0.00019976132234744"
+        ixz="-5.97966381989137E-11"
+        iyy="0.00729190347145918"
+        iyz="-1.41265901139748E-11"
+        izz="0.00734086863988648" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/prop_8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_8_joint"
+    type="revolute">
+    <origin
+      xyz="-0.43532 -1.0378 0.093"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="prop_8" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_1">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019014E-08"
+        ixy="2.06795153138257E-24"
+        ixz="0"
+        iyy="2.19155540019015E-08"
+        iyz="1.29453765864549E-22"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_1_joint"
+    type="continuous">
+    <origin
+      xyz="-0.32086 -0.15463 0.093325"
+      rpy="1.5708 -0.63223 -2.3562" />
+    <parent
+      link="base_link" />
+    <child
+      link="roller_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_2">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 5.55111512312578E-17 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019014E-08"
+        ixy="1.65436122510606E-24"
+        ixz="-1.65436122510606E-24"
+        iyy="2.19155540019015E-08"
+        iyz="-1.65436122510606E-24"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_2_joint"
+    type="continuous">
+    <origin
+      xyz="-0.15463 -0.32086 0.093325"
+      rpy="1.5708 -0.53879 0.7854" />
+    <parent
+      link="base_link" />
+    <child
+      link="roller_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_3">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880791" />
+      <inertia
+        ixx="2.19155540019017E-08"
+        ixy="-8.27180612553028E-25"
+        ixz="-1.4475660719678E-24"
+        iyy="2.19155540019017E-08"
+        iyz="6.20385459414771E-22"
+        izz="4.11921701747879E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_3_joint"
+    type="continuous">
+    <origin
+      xyz="0.15463 -0.32086 0.093325"
+      rpy="1.5708 -1.3964 -0.7854" />
+    <parent
+      link="base_link" />
+    <child
+      link="roller_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_4">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 1.38777878078145E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019015E-08"
+        ixy="-4.77680049279223E-24"
+        ixz="-8.27180612553028E-24"
+        iyy="2.19155540019015E-08"
+        iyz="1.83461497821421E-24"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_4_joint"
+    type="continuous">
+    <origin
+      xyz="0.32086 -0.15463 0.093325"
+      rpy="1.5708 0 2.3562" />
+    <parent
+      link="base_link" />
+    <child
+      link="roller_4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_5">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 2.77555756156289E-17 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880791" />
+      <inertia
+        ixx="2.19155540019017E-08"
+        ixy="2.06795153138257E-24"
+        ixz="-8.27180612553028E-25"
+        iyy="2.19155540019017E-08"
+        iyz="1.32762488314761E-22"
+        izz="4.11921701747879E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_5_joint"
+    type="continuous">
+    <origin
+      xyz="0.32086 0.15463 0.093325"
+      rpy="1.5708 0.39449 0.7854" />
+    <parent
+      link="base_link" />
+    <child
+      link="roller_5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_6">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 0 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019014E-08"
+        ixy="1.86037447845173E-25"
+        ixz="0"
+        iyy="2.19155540019014E-08"
+        iyz="-1.04823540309473E-24"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_6_joint"
+    type="continuous">
+    <origin
+      xyz="0.15463 0.32086 0.093325"
+      rpy="1.5708 0 -2.3562" />
+    <parent
+      link="base_link" />
+    <child
+      link="roller_6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_7">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 1.38777878078145E-17 -4.16333634234434E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019015E-08"
+        ixy="-1.19758520507375E-24"
+        ixz="-3.30872245021211E-24"
+        iyy="2.19155540019014E-08"
+        iyz="-1.51127301989149E-24"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_7_joint"
+    type="continuous">
+    <origin
+      xyz="-0.15463 0.32086 0.093325"
+      rpy="1.5708 0 2.3562" />
+    <parent
+      link="base_link" />
+    <child
+      link="roller_7" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_8">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 1.38777878078145E-17 2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019015E-08"
+        ixy="-3.37646097664684E-24"
+        ixz="-4.96308367531817E-24"
+        iyy="2.19155540019014E-08"
+        iyz="9.36358317392208E-25"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/roller_8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_8_joint"
+    type="continuous">
+    <origin
+      xyz="-0.32086 0.15463 0.093325"
+      rpy="1.5708 0 -0.7854" />
+    <parent
+      link="base_link" />
+    <child
+      link="roller_8" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="multi">
+    <inertial>
+      <origin
+        xyz="-7.82654516235244E-05 -0.0090911702494345 0.0321450827272543"
+        rpy="0 0 0" />
+      <mass
+        value="15.7207871894453" />
+      <inertia
+        ixx="0.167684195503372"
+        ixy="0.000129081277430768"
+        ixz="7.03907890906995E-05"
+        iyy="0.161339175786239"
+        iyz="0.00095165113414169"
+        izz="0.311563539464172" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/multi.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/multi.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="multi_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.17"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="multi" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="aruco_1">
+    <inertial>
+      <origin
+        xyz="-5.74420569281299E-17 -0.0207398593772042 -0.00259373984711061"
+        rpy="0 0 0" />
+      <mass
+        value="0.289915803471327" />
+      <inertia
+        ixx="0.00202966245551985"
+        ixy="6.3635081422914E-19"
+        ixz="4.45811453089757E-20"
+        iyy="0.0015314084947161"
+        iyz="4.81103114175249E-19"
+        izz="0.00356058386148656" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/aruco_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/aruco_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="aruco_1_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.28942 0.046701"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="aruco_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="aruco_2">
+    <inertial>
+      <origin
+        xyz="2.3631880352029E-17 -1.11022302462516E-16 -0.00261457158321428"
+        rpy="0 0 0" />
+      <mass
+        value="0.24812778543054" />
+      <inertia
+        ixx="0.00127668109796921"
+        ixy="-1.81273143620471E-19"
+        ixz="6.54798325874747E-21"
+        iyy="0.00141723473063227"
+        iyz="6.07433697679629E-21"
+        izz="0.00269349894807532" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/aruco_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/aruco_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="aruco_2_joint"
+    type="fixed">
+    <origin
+      xyz="0 -0.28942 0.046701"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="aruco_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="batt_1">
+    <inertial>
+      <origin
+        xyz="-7.35305705212852E-10 2.1463400325537E-06 -0.00341526893931476"
+        rpy="0 0 0" />
+      <mass
+        value="1.20402805466929" />
+      <inertia
+        ixx="0.00512528177628656"
+        ixy="-2.19603239398958E-11"
+        ixz="-7.48519476327946E-11"
+        iyy="0.00470035949571669"
+        iyz="2.64878759575017E-07"
+        izz="0.00123613497192759" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/batt_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/batt_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="batt_1_joint"
+    type="fixed">
+    <origin
+      xyz="-0.54582 0 -0.095302"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="batt_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="batt_2">
+    <inertial>
+      <origin
+        xyz="-7.35305760724003E-10 2.14634003255467E-06 -0.00341526893931481"
+        rpy="0 0 0" />
+      <mass
+        value="1.20402805466929" />
+      <inertia
+        ixx="0.00512528177628656"
+        ixy="-2.19603239101563E-11"
+        ixz="-7.48519505867053E-11"
+        iyy="0.00470035949571669"
+        iyz="2.64878759574539E-07"
+        izz="0.00123613497192759" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/batt_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/batt_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="batt_2_joint"
+    type="fixed">
+    <origin
+      xyz="-0.32482 0 -0.095302"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="batt_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="batt_3">
+    <inertial>
+      <origin
+        xyz="-7.35305705212852E-10 2.14634003255069E-06 -0.00341526893931465"
+        rpy="0 0 0" />
+      <mass
+        value="1.20402805466929" />
+      <inertia
+        ixx="0.00512528177628656"
+        ixy="-2.19603238939901E-11"
+        ixz="-7.4851947911895E-11"
+        iyy="0.00470035949571669"
+        iyz="2.64878759574351E-07"
+        izz="0.00123613497192759" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/batt_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/batt_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="batt-3_joint"
+    type="fixed">
+    <origin
+      xyz="0.32482 0 -0.095302"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="batt_3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="batt_4">
+    <inertial>
+      <origin
+        xyz="-7.35305927257457E-10 2.14634003256152E-06 -0.00341526893931481"
+        rpy="0 0 0" />
+      <mass
+        value="1.2040280546693" />
+      <inertia
+        ixx="0.00512528177628657"
+        ixy="-2.19603238904556E-11"
+        ixz="-7.48519491492673E-11"
+        iyy="0.00470035949571671"
+        iyz="2.64878759574933E-07"
+        izz="0.00123613497192759" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/batt_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/batt_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="batt_4_joint"
+    type="fixed">
+    <origin
+      xyz="0.54582 0 -0.095302"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="batt_4" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="fc">
+    <inertial>
+      <origin
+        xyz="0.00200592444787517 -0.000185204600325464 0.00486951289629314"
+        rpy="0 0 0" />
+      <mass
+        value="0.0332049610388106" />
+      <inertia
+        ixx="5.57745761915107E-06"
+        ixy="2.10972714452112E-07"
+        ixz="-2.34899141322807E-07"
+        iyy="2.01522611058189E-05"
+        iyz="1.31256434184062E-08"
+        izz="2.51235222598628E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/fc.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/fc.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fc_joint"
+    type="fixed">
+    <origin
+      xyz="0.43532 0 0.036331"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fc" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gps_1">
+    <inertial>
+      <origin
+        xyz="-0.000595423068436629 -3.50461574313843E-06 0.00725304206893802"
+        rpy="0 0 0" />
+      <mass
+        value="0.0229899972559036" />
+      <inertia
+        ixx="3.2560030570289E-06"
+        ixy="-6.51330544777953E-12"
+        ixz="-1.27591041693889E-08"
+        iyy="3.65451604081092E-06"
+        iyz="8.72058094231288E-12"
+        izz="6.30283181954582E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/gps_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/gps_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gps_1_joint"
+    type="fixed">
+    <origin
+      xyz="0.43532 0.06 0.10233"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gps_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="gps_2">
+    <inertial>
+      <origin
+        xyz="-0.000595423068436629 -3.50461574315231E-06 0.00725304206893801"
+        rpy="0 0 0" />
+      <mass
+        value="0.0229899972559036" />
+      <inertia
+        ixx="3.25600305702889E-06"
+        ixy="-6.51330544502877E-12"
+        ixz="-1.27591041693885E-08"
+        iyy="3.65451604081091E-06"
+        iyz="8.72058094408459E-12"
+        izz="6.30283181954581E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/gps_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_SIM_R02.SLDASM/meshes/gps_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gps_2_joint"
+    type="fixed">
+    <origin
+      xyz="0.435324 -0.0600000000000018 0.102331428891327"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="gps_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

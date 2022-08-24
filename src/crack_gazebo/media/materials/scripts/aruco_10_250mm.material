@@ -1,0 +1,14 @@
+material aruco_10_250mm
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture aruco_10_250mm.png
+      }
+    }
+  }
+}

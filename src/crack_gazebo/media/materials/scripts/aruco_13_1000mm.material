@@ -1,0 +1,14 @@
+material aruco_13_1000mm
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture aruco_13.png
+      }
+    }
+  }
+}

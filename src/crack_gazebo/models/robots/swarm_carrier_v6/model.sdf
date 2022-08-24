@@ -1,0 +1,974 @@
+<sdf version='1.7'>
+  <model name='swarm_carrier_v6'>
+    <link name='base_link'>
+      <inertial>
+        <pose>0.010462 -0.005034 -0.100487 0 -0 0</pose>
+        <mass>32.9137</mass>
+        <inertia>
+          <ixx>0.940098</ixx>
+          <ixy>-0.000849331</ixy>
+          <ixz>-0.0191077</ixz>
+          <iyy>1.86837</iyy>
+          <iyz>-0.00407351</iyz>
+          <izz>2.6262</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__aruco_1_visual_1'>
+        <pose>0 0.28942 0.046701 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/aruco_1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__aruco_2_visual_2'>
+        <pose>0 -0.28942 0.046701 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/aruco_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__batt_3_visual_3'>
+        <pose>0.32482 0 -0.095302 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/batt_3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__batt_1_visual_4'>
+        <pose>-0.54582 0 -0.095302 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/batt_1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__batt_2_visual_5'>
+        <pose>-0.32482 0 -0.095302 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/batt_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__batt_4_visual_6'>
+        <pose>0.54582 0 -0.095302 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/batt_4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__fc_visual_7'>
+        <pose>0.43532 0 0.036331 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/fc.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__gps_1_visual_8'>
+        <pose>0.43532 0.06 0.10233 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/gps_1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__gps_2_visual_9'>
+        <pose>0.435324 -0.06 0.102331 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/gps_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__multi_visual_10'>
+        <pose>0 0 -0.17 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/multi.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_1_joint' type='revolute'>
+      <pose relative_to='base_link'>1.0378 -0.42844 0.1217 0 -0 1.5708</pose>
+      <parent>base_link</parent>
+      <child>prop_1</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_1'>
+      <pose relative_to='prop_1_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.015491 0 -0 0</pose>
+        <mass>0.249233</mass>
+        <inertia>
+          <ixx>6.00146e-05</ixx>
+          <ixy>0.000199761</ixy>
+          <ixz>-6.17672e-11</ixz>
+          <iyy>0.0072919</iyy>
+          <iyz>-1.40904e-11</iyz>
+          <izz>0.00734087</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_2_joint' type='revolute'>
+      <pose relative_to='base_link'>-1.0378 0.42844 0.1217 0 -0 1.4342</pose>
+      <parent>base_link</parent>
+      <child>prop_2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_2'>
+      <pose relative_to='prop_2_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>2e-06 -0 -0.015491 0 -0 0</pose>
+        <mass>0.249235</mass>
+        <inertia>
+          <ixx>6.00144e-05</ixx>
+          <ixy>0.000199765</ixy>
+          <ixz>3.88813e-10</ixz>
+          <iyy>0.00729195</iyy>
+          <iyz>-6.93181e-11</iyz>
+          <izz>0.00734092</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_3_joint' type='revolute'>
+      <pose relative_to='base_link'>0.43532 -1.0378 0.093 0 0 -1.468</pose>
+      <parent>base_link</parent>
+      <child>prop_3</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_3'>
+      <pose relative_to='prop_3_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-4e-06 -0 -0.015491 0 -0 0</pose>
+        <mass>0.24923</mass>
+        <inertia>
+          <ixx>6.00169e-05</ixx>
+          <ixy>-0.000199773</ixy>
+          <ixz>1.96136e-09</ixz>
+          <iyy>0.00729181</iyy>
+          <iyz>7.57865e-11</iyz>
+          <izz>0.00734078</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_4_joint' type='revolute'>
+      <pose relative_to='base_link'>-1.0378 -0.42844 0.1217 0 0 -1.5018</pose>
+      <parent>base_link</parent>
+      <child>prop_4</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_4'>
+      <pose relative_to='prop_4_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-5e-06 -0 -0.015491 0 -0 0</pose>
+        <mass>0.249233</mass>
+        <inertia>
+          <ixx>6.0017e-05</ixx>
+          <ixy>-0.000199776</ixy>
+          <ixz>1.6799e-09</ixz>
+          <iyy>0.00729186</iyy>
+          <iyz>6.38623e-12</iyz>
+          <izz>0.00734082</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_4_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_4_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_5_joint' type='revolute'>
+      <pose relative_to='base_link'>1.0378 0.42844 0.1217 0 -0 2.1692</pose>
+      <parent>base_link</parent>
+      <child>prop_5</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_5'>
+      <pose relative_to='prop_5_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-5e-06 -0 -0.015491 0 -0 0</pose>
+        <mass>0.249233</mass>
+        <inertia>
+          <ixx>6.00175e-05</ixx>
+          <ixy>-0.000199777</ixy>
+          <ixz>1.49581e-09</ixz>
+          <iyy>0.00729186</iyy>
+          <iyz>1.65354e-12</iyz>
+          <izz>0.00734083</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_5_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_5.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_5_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_5.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_6_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.43532 1.0378 0.093 0 0 -1.8869</pose>
+      <parent>base_link</parent>
+      <child>prop_6</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_6'>
+      <pose relative_to='prop_6_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-2e-06 0 -0.015491 0 -0 0</pose>
+        <mass>0.249233</mass>
+        <inertia>
+          <ixx>6.00177e-05</ixx>
+          <ixy>-0.000199778</ixy>
+          <ixz>2.45599e-09</ixz>
+          <iyy>0.00729186</iyy>
+          <iyz>1.62081e-10</iyz>
+          <izz>0.00734083</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_6_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_6.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_6_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_6.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_7_joint' type='revolute'>
+      <pose relative_to='base_link'>0.43532 1.0378 0.093 0 -0 1.4743</pose>
+      <parent>base_link</parent>
+      <child>prop_7</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_7'>
+      <pose relative_to='prop_7_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.015491 0 -0 0</pose>
+        <mass>0.249238</mass>
+        <inertia>
+          <ixx>6.00148e-05</ixx>
+          <ixy>0.00019977</ixy>
+          <ixz>-6.37762e-11</ixz>
+          <iyy>0.00729202</iyy>
+          <iyz>-1.41079e-11</iyz>
+          <izz>0.00734098</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_7_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_7.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_7_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_7.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='prop_8_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.43532 -1.0378 0.093 0 -0 1.5708</pose>
+      <parent>base_link</parent>
+      <child>prop_8</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <effort>100</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='prop_8'>
+      <pose relative_to='prop_8_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.015491 0 -0 0</pose>
+        <mass>0.249233</mass>
+        <inertia>
+          <ixx>6.00146e-05</ixx>
+          <ixy>0.000199761</ixy>
+          <ixz>-5.97966e-11</ixz>
+          <iyy>0.0072919</iyy>
+          <iyz>-1.41266e-11</iyz>
+          <izz>0.00734087</izz>
+        </inertia>
+      </inertial>
+      <collision name='prop_8_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_8.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='prop_8_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/prop_8.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_1_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.32086 -0.15463 0.093325 1.5708 -0.63223 -2.3562</pose>
+      <parent>base_link</parent>
+      <child>roller_1</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_1'>
+      <pose relative_to='roller_1_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>2.06795e-24</ixy>
+          <ixz>0</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>1.29454e-22</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_1_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_1_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_2_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.15463 -0.32086 0.093325 1.5708 -0.53879 0.7854</pose>
+      <parent>base_link</parent>
+      <child>roller_2</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_2'>
+      <pose relative_to='roller_2_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 -0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>1.65436e-24</ixy>
+          <ixz>-1.65436e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>-1.65436e-24</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_2_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_2_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_3_joint' type='revolute'>
+      <pose relative_to='base_link'>0.15463 -0.32086 0.093325 1.5708 -1.3964 -0.7854</pose>
+      <parent>base_link</parent>
+      <child>roller_3</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_3'>
+      <pose relative_to='roller_3_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>-8.27181e-25</ixy>
+          <ixz>-1.44757e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>6.20385e-22</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_3_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_3_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_3.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_4_joint' type='revolute'>
+      <pose relative_to='base_link'>0.32086 -0.15463 0.093325 1.5708 -0 2.3562</pose>
+      <parent>base_link</parent>
+      <child>roller_4</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_4'>
+      <pose relative_to='roller_4_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>-4.7768e-24</ixy>
+          <ixz>-8.27181e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>1.83461e-24</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_4_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_4_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_4.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_5_joint' type='revolute'>
+      <pose relative_to='base_link'>0.32086 0.15463 0.093325 1.5708 0.39449 0.7854</pose>
+      <parent>base_link</parent>
+      <child>roller_5</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_5'>
+      <pose relative_to='roller_5_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>2.06795e-24</ixy>
+          <ixz>-8.27181e-25</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>1.32762e-22</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_5_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_5.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_5_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_5.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_6_joint' type='revolute'>
+      <pose relative_to='base_link'>0.15463 0.32086 0.093325 1.5708 -0 -2.3562</pose>
+      <parent>base_link</parent>
+      <child>roller_6</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_6'>
+      <pose relative_to='roller_6_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>1.86037e-25</ixy>
+          <ixz>0</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>-1.04824e-24</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_6_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_6.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_6_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_6.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_7_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.15463 0.32086 0.093325 1.5708 -0 2.3562</pose>
+      <parent>base_link</parent>
+      <child>roller_7</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_7'>
+      <pose relative_to='roller_7_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>-1.19759e-24</ixy>
+          <ixz>-3.30872e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>-1.51127e-24</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_7_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_7.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_7_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_7.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='roller_8_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.32086 0.15463 0.093325 1.5708 -0 -0.7854</pose>
+      <parent>base_link</parent>
+      <child>roller_8</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>100</effort>
+          <velocity>100</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='roller_8'>
+      <pose relative_to='roller_8_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>0.000989602</mass>
+        <inertia>
+          <ixx>2.19156e-08</ixx>
+          <ixy>-3.37646e-24</ixy>
+          <ixz>-4.96308e-24</ixz>
+          <iyy>2.19156e-08</iyy>
+          <iyz>9.36358e-25</iyz>
+          <izz>4.11922e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='roller_8_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_8.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='roller_8_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://swarm_carrier_v6/meshes/roller_8.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

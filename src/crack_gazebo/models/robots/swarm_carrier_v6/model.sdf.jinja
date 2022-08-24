@@ -1,0 +1,658 @@
+<?xml version='1.0'?>
+{% macro gazebo_dark_grey() -%}
+<material>
+  <script>
+    <uri>file://media/materials/scripts/gazebo.material</uri>
+    <name>Gazebo/DarkGrey</name>
+  </script>
+</material>
+{%- endmacro -%}
+{% macro gazebo_grey() -%}
+<material>
+  <script>
+    <uri>file://media/materials/scripts/gazebo.material</uri>
+    <name>Gazebo/Grey</name>
+  </script>
+</material>
+{%- endmacro -%}
+{% macro gazebo_yellow() -%}
+<material>
+  <script>
+    <uri>file://media/materials/scripts/gazebo.material</uri>
+    <name>Gazebo/Yellow</name>
+  </script>
+</material>
+{%- endmacro -%}
+{% macro gazebo_white() -%}
+<material>
+  <script>
+    <uri>file://media/materials/scripts/gazebo.material</uri>
+    <name>Gazebo/White</name>
+  </script>
+</material>
+{%- endmacro -%}
+{% macro plugin_motor_model(name, link, motor_number, direction) -%}
+<plugin name='{{ name }}' filename='libgazebo_motor_model.so'>
+  <robotNamespace/>
+  <jointName>{{ link }}_joint</jointName>
+  <linkName>{{ link }}</linkName>
+  <turningDirection>{{ direction }}</turningDirection>
+  <timeConstantUp>0.0125</timeConstantUp>
+  <timeConstantDown>0.025</timeConstantDown>
+  <maxRotVelocity>33852.2563956</maxRotVelocity>
+  <motorConstant>0.0001661</motorConstant>
+  <momentConstant>0.09549296</momentConstant>
+  <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
+  <motorNumber>{{ motor_number }}</motorNumber>
+  <rotorDragCoefficient>0.000175</rotorDragCoefficient>
+  <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+  <motorSpeedPubTopic>/motor_speed/{{ motor_number }}</motorSpeedPubTopic>
+  <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+</plugin>
+{%- endmacro -%}
+{% macro link_prop(name, x, y, z, roll, pitch, yaw) -%}
+<joint name='{{ name }}_joint' type='revolute'>
+  <pose relative_to='base_link'>{{ x }}  {{ y }} {{ z }} {{ roll }} {{ pitch }} {{ yaw }}</pose>
+  <parent>base_link</parent>
+  <child>{{ name }}</child>
+  <axis>
+    <xyz>0 0 1</xyz>
+    <limit>
+      <lower>-1e+16</lower>
+      <upper>1e+16</upper>
+      <effort>100</effort>
+      <velocity>100</velocity>
+    </limit>
+    <dynamics>
+      <damping>0.004</damping>
+      <friction>0</friction>
+      <spring_reference>0</spring_reference>
+      <spring_stiffness>0</spring_stiffness>
+    </dynamics>
+    <use_parent_model_frame>0</use_parent_model_frame>
+  </axis>
+  <physics>
+    <ode>
+      <implicit_spring_damper>1</implicit_spring_damper>
+    </ode>
+  </physics>
+</joint>
+<link name='{{ name }}'>
+  <pose relative_to='{{ name }}_joint'>0 0 0 0 -0 0</pose>
+  <inertial>
+    <pose>-0 0 -0.015491 0 -0 0</pose>
+    <mass>0.24923</mass>
+    <inertia>
+      <ixx>6.0017e-05</ixx>
+      <ixy>-0.00019978</ixy>
+      <ixz>1.6799e-09</ixz>
+      <iyy>0.0072919</iyy>
+      <iyz>6.3862e-12</iyz>
+      <izz>0.0073408</izz>
+    </inertia>
+  </inertial>
+  <collision name='{{ name }}_collision'>
+    <pose>0 0 0 0 -0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>1 1 1</scale>
+        <uri>model://robots/swarm_carrier_v6/meshes/{{ name }}_col.STL</uri>
+      </mesh>
+    </geometry>
+  </collision>
+  <visual name='{{ name }}_visual'>
+    <pose>0 0 0 0 -0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>1 1 1</scale>
+        <uri>model://robots/swarm_carrier_v6/meshes/{{ name }}.STL</uri>
+      </mesh>
+    </geometry>
+    <material>
+      <script>
+        <uri>file://media/materials/scripts/gazebo.material</uri>
+        <name>Gazebo/Grey</name>
+      </script>
+    </material>
+  </visual>
+</link>
+{%- endmacro -%}
+{% macro link_roller(name, x, y, z, roll, pitch, yaw) -%}
+<joint name='{{ name }}_joint' type='revolute'>
+  <pose relative_to='base_link'>{{ x }}  {{ y }} {{ z }} {{ roll }} {{ pitch }} {{ yaw }}</pose>
+  <parent>base_link</parent>
+  <child>{{ name }}</child>
+  <axis>
+    <xyz>0 0 -1</xyz>
+    <limit>
+      <lower>-1e+16</lower>
+      <upper>1e+16</upper>
+      <effort>100</effort>
+      <velocity>100</velocity>
+    </limit>
+    <dynamics>
+      <damping>0.004</damping>
+      <friction>0</friction>
+      <spring_reference>0</spring_reference>
+      <spring_stiffness>0</spring_stiffness>
+    </dynamics>
+    <use_parent_model_frame>0</use_parent_model_frame>
+  </axis>
+</joint>
+<link name='{{ name }}'>
+  <pose relative_to='{{ name }}_joint'>0 0 0 0 -0 0</pose>
+  <inertial>
+    <pose>0 0 -0 0 -0 0</pose>
+    <mass>0.000989602</mass>
+    <inertia>
+      <ixx>2.19156e-08</ixx>
+      <ixy>8.27181e-25</ixy>
+      <ixz>-1.65436e-24</ixz>
+      <iyy>2.19156e-08</iyy>
+      <iyz>1.32349e-22</iyz>
+      <izz>4.11922e-08</izz>
+    </inertia>
+  </inertial>
+  <collision name='{{ name }}_collision'>
+    <pose>0 0 0 0 -0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>1 1 1</scale>
+        <uri>model://robots/swarm_carrier_v6/meshes/{{ name }}_col.STL</uri>
+      </mesh>
+    </geometry>
+  </collision>
+  <visual name='{{ name }}_visual'>
+    <pose>0 0 0 0 -0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>1 1 1</scale>
+        <uri>model://robots/swarm_carrier_v6/meshes/{{ name }}.STL</uri>
+      </mesh>
+    </geometry>
+  </visual>
+</link>
+{%- endmacro -%}
+
+<sdf version='1.7'>
+  <model name='swarm_carrier'>
+    <link name='base_link'>
+      <inertial>
+        <pose>0.010462 -0.005034 -0.100487 0 -0 0</pose>
+        <mass>32.9137</mass>
+        <inertia>
+          <ixx>0.940098</ixx>
+          <ixy>-0.000849331</ixy>
+          <ixz>-0.0191077</ixz>
+          <iyy>1.86837</iyy>
+          <iyz>-0.00407351</iyz>
+          <izz>2.6262</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/base_link_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        {{ gazebo_dark_grey() }}
+      </visual>
+      <visual name='aruco_1_visual'>
+        <pose>0 0.259 0.048 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2300 0.2896 1e-5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://fiducials/aruco_array_v2/materials/scripts</uri>
+            <uri>model://fiducials/aruco_array_v2/materials/textures</uri>
+            <name>ArucoArrayV2/Marker</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>1 1 1 0</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+      <visual name='aruco_2_visual'>
+        <pose>0 -0.289 0.048 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2200 0.2200 1e-5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://fiducials/aruco_6x6_4/materials/scripts</uri>
+            <uri>model://fiducials/aruco_6x6_4/materials/textures</uri>
+            <name>ArucoMarker4/Marker</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>1 1 1 0</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__aruco_1_visual_1'>
+        <pose>0 0.28942 0.046701 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/aruco_1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__aruco_2_visual_2'>
+        <pose>0 -0.28942 0.046701 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/aruco_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__batt_3_visual_3'>
+        <pose>0.32482 0 -0.095302 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/batt_3.STL</uri>
+          </mesh>
+        </geometry>
+        {{ gazebo_yellow() }}
+      </visual>
+      <visual name='base_link_fixed_joint_lump__batt_1_visual_4'>
+        <pose>-0.54582 0 -0.095302 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/batt_1.STL</uri>
+          </mesh>
+        </geometry>
+        {{ gazebo_yellow() }}
+      </visual>
+      <visual name='base_link_fixed_joint_lump__batt_2_visual_5'>
+        <pose>-0.32482 0 -0.095302 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/batt_2.STL</uri>
+          </mesh>
+        </geometry>
+        {{ gazebo_yellow() }}
+      </visual>
+      <visual name='base_link_fixed_joint_lump__batt_4_visual_6'>
+        <pose>0.54582 0 -0.095302 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/batt_4.STL</uri>
+          </mesh>
+        </geometry>
+        {{ gazebo_yellow() }}
+      </visual>
+      <visual name='base_link_fixed_joint_lump__fc_visual_7'>
+        <pose>0.43532 0 0.036331 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/fc.STL</uri>
+          </mesh>
+        </geometry>
+        {{ gazebo_grey() }}
+      </visual>
+      <visual name='base_link_fixed_joint_lump__gps_1_visual_8'>
+        <pose>0.43532 0.06 0.10233 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/gps_1.STL</uri>
+          </mesh>
+        </geometry>
+        {{ gazebo_grey() }}
+      </visual>
+      <visual name='base_link_fixed_joint_lump__gps_2_visual_9'>
+        <pose>0.435324 -0.06 0.102331 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/gps_2.STL</uri>
+          </mesh>
+        </geometry>
+        {{ gazebo_grey() }}
+      </visual>
+      <visual name='base_link_fixed_joint_lump__multi_visual_10'>
+        <pose>0 0 -0.17 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://robots/swarm_carrier_v6/meshes/multi.STL</uri>
+          </mesh>
+        </geometry>
+        {{ gazebo_grey() }}
+      </visual>
+    </link>
+    {{ link_prop("prop_1", 1.0378, -0.42844, 0.1217, 0, 0, 1.5708) }}
+    {{ link_prop("prop_2", -1.0378, 0.42844, 0.1217, 0, -0, 1.4342) }}
+    {{ link_prop("prop_3", 0.43532, -1.0378, 0.093, 0, 0, -1.468) }}
+    {{ link_prop("prop_4", -1.0378, -0.42844, 0.1217, 0, 0, -1.5018) }}
+    {{ link_prop("prop_5", 1.0378, 0.42844, 0.1217, 0, -0, 2.1692) }}
+    {{ link_prop("prop_6", -0.43532, 1.0378, 0.093, 0, 0, -1.8869) }}
+    {{ link_prop("prop_7", 0.43532, 1.0378, 0.093, 0, -0, 1.4743) }}
+    {{ link_prop("prop_8", -0.43532, -1.0378, 0.093, 0, -0, 1.5708) }}
+
+    {# {{ link_roller("roller_1", -0.32086, -0.15463, 0.093325, 1.5708, -0.63223, -2.3562) }}
+    {{ link_roller("roller_2", -0.15463, -0.32086, 0.093325, 1.5708, -0.53879, 0.7854) }}
+    {{ link_roller("roller_3", 0.15463, -0.32086, 0.093325, 1.5708, -1.3964, -0.7854) }}
+    {{ link_roller("roller_4", 0.32086, -0.15463, 0.093325, 1.5708, -0, 2.3562) }}
+    {{ link_roller("roller_5", 0.32086, 0.15463, 0.093325, 1.5708, 0.39449, 0.7854) }}
+    {{ link_roller("roller_6", 0.15463, 0.32086, 0.093325, 1.5708, -0, -2.3562) }}
+    {{ link_roller("roller_7", -0.15463, 0.32086, 0.093325, 1.5708, -0, 2.3562) }}
+    {{ link_roller("roller_8", -0.32086, 0.15463, 0.093325, 1.5708, -0, -0.7854) }} #}
+    
+    <link name='/imu_link'>
+      <pose>0.43532 0 0.036331 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='/imu_joint' type='revolute'>
+      <child>/imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <!-- plugins -->
+    <plugin name='rosbag' filename='libgazebo_multirotor_base_plugin.so'>
+      <robotNamespace/>
+      <linkName>base_link</linkName>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+    {{ plugin_motor_model('front_right_motor_model', 'prop_1', 0, 'cw') }}
+    {{ plugin_motor_model('rear_left_motor_model', 'prop_2', 1, 'cw') }}
+    {{ plugin_motor_model('mid_front_right_motor_model', 'prop_3', 2, 'ccw') }}
+    {{ plugin_motor_model('rear_right_motor_model', 'prop_4', 3, 'ccw') }}
+    {{ plugin_motor_model('front_left_motor_model', 'prop_5', 4, 'ccw') }}
+    {{ plugin_motor_model('mid_rear_left_motor_model', 'prop_6', 5, 'ccw') }}
+    {{ plugin_motor_model('mid_front_left_motor_model', 'prop_7', 6, 'cw') }}
+    {{ plugin_motor_model('mid_rear_right_motor_model', 'prop_8', 7, 'cw') }}
+
+    {# TODO: Remove below landing markers once carrier inertia is figured out, without the below the drone can't hover and crashes #}
+    <include>
+      <name>aruco_landing_markers</name>
+      <uri>model://fiducials/aruco_landing_markers</uri>
+      <pose>0 0 0.04 0 0 0</pose>
+    </include>
+    <joint name="aruco_landing_markers_joint" type="fixed">
+      <child>aruco_landing_markers::base_link</child>
+      <parent>base_link</parent>
+    </joint>
+    {# <joint name="aruco_1_joint" type="fixed">
+      <pose relative_to="base_link">0 0.259 0.048 0 0 0</pose>
+      <child>aruco_1</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name='aruco_1'>
+      <pose relative_to="aruco_1_joint">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.2300 0.2896 1e-5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://fiducials/aruco_array_v2/materials/scripts</uri>
+            <uri>model://fiducials/aruco_array_v2/materials/textures</uri>
+            <name>ArucoArrayV2/Marker</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>1 1 1 0</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link>
+
+    <joint name="aruco_2_joint" type="fixed">
+      <pose relative_to="base_link">0 -0.289 0.048 0 0 0</pose>
+      <child>aruco_2</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name='aruco_2'>
+      <pose relative_to="aruco_2_joint">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+      </inertial>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.2200 0.2200 1e-5</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://fiducials/aruco_6x6_4/materials/scripts</uri>
+            <uri>model://fiducials/aruco_6x6_4/materials/textures</uri>
+            <name>ArucoMarker4/Marker</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0 0 0 1</specular>
+          <emissive>1 1 1 0</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+    </link> #}
+
+    
+    <include>
+      <uri>model://gps</uri>
+      <pose>0.43532 0 0.036331 0 0 0</pose>
+      <name>gps0</name>
+    </include>
+    <joint name='gps0_joint' type='fixed'>
+      <child>gps0::link</child>
+      <parent>base_link</parent>
+    </joint>
+    <plugin name='groundtruth_plugin' filename='libgazebo_groundtruth_plugin.so'>
+      <robotNamespace/>
+    </plugin>
+    <plugin name='magnetometer_plugin' filename='libgazebo_magnetometer_plugin.so'>
+      <robotNamespace/>
+      <pubRate>100</pubRate>
+      <noiseDensity>0.0004</noiseDensity>
+      <randomWalk>6.4e-06</randomWalk>
+      <biasCorrelationTime>600</biasCorrelationTime>
+      <magTopic>/mag</magTopic>
+    </plugin>
+    <plugin name='barometer_plugin' filename='libgazebo_barometer_plugin.so'>
+      <robotNamespace/>
+      <pubRate>50</pubRate>
+      <baroTopic>/baro</baroTopic>
+      <baroDriftPaPerSec>0</baroDriftPaPerSec>
+    </plugin>
+    <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
+      <robotNamespace/>
+      <imuSubTopic>/imu</imuSubTopic>
+      <magSubTopic>/mag</magSubTopic>
+      <baroSubTopic>/baro</baroSubTopic>
+      <mavlink_addr>INADDR_ANY</mavlink_addr>
+      <mavlink_tcp_port>{{ mavlink_tcp_port }}</mavlink_tcp_port>
+      <mavlink_udp_port>{{ mavlink_udp_port }}</mavlink_udp_port>
+      <serialEnabled>{{ serial_enabled }}</serialEnabled>
+      <serialDevice>{{ serial_device }}</serialDevice>
+      <baudRate>921600</baudRate>
+      <qgc_addr>INADDR_ANY</qgc_addr>
+      <qgc_udp_port>14550</qgc_udp_port>
+      <sdk_addr>INADDR_ANY</sdk_addr>
+      <sdk_udp_port>14540</sdk_udp_port>
+      <hil_mode>{{ hil_mode }}</hil_mode>
+      <hil_state_level>0</hil_state_level>
+      <send_vision_estimation>0</send_vision_estimation>
+      <send_odometry>1</send_odometry>
+      <enable_lockstep>1</enable_lockstep>
+      <use_tcp>1</use_tcp>
+      <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
+      <control_channels>
+        <channel name='rotor1'>
+          <input_index>0</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1000</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name='rotor2'>
+          <input_index>1</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1000</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name='rotor3'>
+          <input_index>2</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1000</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name='rotor4'>
+          <input_index>3</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1000</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name='rotor5'>
+          <input_index>4</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1000</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name='rotor6'>
+          <input_index>5</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1000</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name='rotor7'>
+          <input_index>6</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1000</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+        <channel name='rotor8'>
+          <input_index>7</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1000</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>100</zero_position_armed>
+          <joint_control_type>velocity</joint_control_type>
+        </channel>
+      </control_channels>
+    </plugin>
+    <static>0</static>
+    <plugin name='rotors_gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
+      <robotNamespace/>
+      <linkName>/imu_link</linkName>
+      <imuTopic>/imu</imuTopic>
+      <gyroscopeNoiseDensity>0.00018665</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.00186</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
+    </plugin>
+  </model>
+</sdf>

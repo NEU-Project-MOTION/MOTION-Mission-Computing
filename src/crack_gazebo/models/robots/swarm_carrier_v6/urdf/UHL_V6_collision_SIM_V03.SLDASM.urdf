@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="UHL_V6_collision_SIM_V03.SLDASM">
+  <link
+    name="base_link_col">
+    <inertial>
+      <origin
+        xyz="2.038E-16 0.00012313 -0.14229"
+        rpy="0 0 0" />
+      <mass
+        value="3900.6" />
+      <inertia
+        ixx="2835.7"
+        ixy="6.7307E-14"
+        ixz="-1.9911E-14"
+        iyy="2835.5"
+        iyz="0.017642"
+        izz="5515.3" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/base_link_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/base_link_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="prop_1_col">
+    <inertial>
+      <origin
+        xyz="-1.1102E-16 0 1.3878E-17"
+        rpy="0 0 0" />
+      <mass
+        value="3.6413" />
+      <inertia
+        ixx="0.0033917"
+        ixy="8.1992E-16"
+        ixz="-7.0271E-19"
+        iyy="0.17721"
+        iyz="-5.0088E-20"
+        izz="0.17896" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_1_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_1_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_1_col"
+    type="revolute">
+    <origin
+      xyz="1.0378 -0.42844 0.1217"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="prop_1_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_2_col">
+    <inertial>
+      <origin
+        xyz="-1.11022302462516E-16 0 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="3.64132392955034" />
+      <inertia
+        ixx="0.00339171390935171"
+        ixy="7.78972155876523E-16"
+        ixz="3.7784519836937E-19"
+        iyy="0.177210843029352"
+        iyz="-6.25654439775678E-20"
+        izz="0.17896153362112" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_2_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_2_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_2_col"
+    type="revolute">
+    <origin
+      xyz="-1.0378 0.42844 0.1217"
+      rpy="0 0 1.4342" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="prop_2_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_3_col">
+    <inertial>
+      <origin
+        xyz="-2.22044604925031E-16 -5.55111512312578E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="3.64132392955033" />
+      <inertia
+        ixx="0.0033917139093517"
+        ixy="8.31962537056752E-16"
+        ixz="-2.78302024411209E-19"
+        iyy="0.177210843029352"
+        iyz="-3.68187778146309E-21"
+        izz="0.17896153362112" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_3_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_3_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_3_col"
+    type="revolute">
+    <origin
+      xyz="0.43532 -1.0378 0.093"
+      rpy="0 0 -1.468" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="prop_3_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_4_col">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-16 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="3.64132392955033" />
+      <inertia
+        ixx="0.0033917139093517"
+        ixy="8.17230940038105E-16"
+        ixz="1.58131875475387E-18"
+        iyy="0.177210843029352"
+        iyz="-2.35559136752346E-19"
+        izz="0.178961533621119" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_4_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_4_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_4_col"
+    type="revolute">
+    <origin
+      xyz="-1.03778459177565 -0.428443499999997 0.121701999999999"
+      rpy="0 0 -1.50178281005713" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="prop_4_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_5_col">
+    <inertial>
+      <origin
+        xyz="-3.33066907387547E-16 0 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="3.64132392955034" />
+      <inertia
+        ixx="0.00339171390935171"
+        ixy="8.04478011984244E-16"
+        ixz="-4.54334164264862E-19"
+        iyy="0.177210843029352"
+        iyz="3.99908201455961E-19"
+        izz="0.17896153362112" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_5_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_5_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_5_col"
+    type="revolute">
+    <origin
+      xyz="1.0378 0.42844 0.1217"
+      rpy="0 0 2.1692" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="prop_5_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_6_col">
+    <inertial>
+      <origin
+        xyz="-3.33066907387547E-16 0 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="3.64132392955033" />
+      <inertia
+        ixx="0.0033917139093517"
+        ixy="8.32667268468867E-16"
+        ixz="2.90727660871927E-18"
+        iyy="0.177210843029352"
+        iyz="6.07748260736248E-19"
+        izz="0.178961533621119" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_6_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_6_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_6_col"
+    type="revolute">
+    <origin
+      xyz="-0.435323999999997 1.03778459177565 0.0930000000000036"
+      rpy="0 0 -1.88685628316968" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="prop_6_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_7_col">
+    <inertial>
+      <origin
+        xyz="-2.22044604925031E-16 -5.55111512312578E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="3.64132392955033" />
+      <inertia
+        ixx="0.00339171390935169"
+        ixy="8.48605040404404E-16"
+        ixz="-5.63013184622792E-20"
+        iyy="0.177210843029352"
+        iyz="-6.49134020872091E-20"
+        izz="0.178961533621119" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_7_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_7_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_7_col"
+    type="revolute">
+    <origin
+      xyz="0.435324000000003 1.03778459177565 0.0930000000000036"
+      rpy="0 0 1.47429965703941" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="prop_7_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="prop_8_col">
+    <inertial>
+      <origin
+        xyz="-2.22044604925031E-16 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="3.64132392955034" />
+      <inertia
+        ixx="0.0033917139093517"
+        ixy="8.22521310906921E-16"
+        ixz="2.9960838241194E-18"
+        iyy="0.177210843029352"
+        iyz="2.04384835255333E-19"
+        izz="0.17896153362112" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_8_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/prop_8_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="prop_8_col"
+    type="revolute">
+    <origin
+      xyz="-0.435324000000003 -1.03778459177565 0.0929999999999964"
+      rpy="0 0 1.57079632679489" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="prop_8_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_1_col">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019014E-08"
+        ixy="2.06795153138257E-24"
+        ixz="0"
+        iyy="2.19155540019015E-08"
+        iyz="1.29453765864549E-22"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_1_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_1_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_1_col"
+    type="continuous">
+    <origin
+      xyz="-0.320857811232419 -0.154626214467155 0.0933247675946381"
+      rpy="1.57079632679489 -0.632226744547574 -2.35619449019234" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="roller_1_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_2_col">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 5.55111512312578E-17 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019014E-08"
+        ixy="-1.24077091882954E-24"
+        ixz="-3.30872245021211E-24"
+        iyy="2.19155540019015E-08"
+        iyz="-1.65436122510606E-24"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_2_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_2_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_2_col"
+    type="continuous">
+    <origin
+      xyz="-0.154626214467157 -0.320857811232418 0.0933247675946378"
+      rpy="1.57079632679489 -0.538794697545393 0.785398163397449" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="roller_2_col" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_3_col">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880791" />
+      <inertia
+        ixx="2.19155540019017E-08"
+        ixy="-8.27180612553028E-25"
+        ixz="-1.4475660719678E-24"
+        iyy="2.19155540019017E-08"
+        iyz="6.20385459414771E-22"
+        izz="4.11921701747879E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_3_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_3_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_3_col"
+    type="continuous">
+    <origin
+      xyz="0.154626214467152 -0.32085781123242 0.0933247675946378"
+      rpy="1.57079632679491 -1.3964206084319 -0.785398163397448" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="roller_3_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_4_col">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 1.38777878078145E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019015E-08"
+        ixy="-4.77680049279221E-24"
+        ixz="-8.27180612553028E-24"
+        iyy="2.19155540019015E-08"
+        iyz="1.83461497821421E-24"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_4_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_4_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_4_col"
+    type="continuous">
+    <origin
+      xyz="0.32086 -0.15463 0.093325"
+      rpy="1.5708 0 2.3562" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="roller_4_col" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_5_col">
+    <inertial>
+      <origin
+        xyz="0 2.77555756156289E-17 -6.93889390390723E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880791" />
+      <inertia
+        ixx="2.19155540019017E-08"
+        ixy="8.27180612553028E-25"
+        ixz="-1.65436122510606E-24"
+        iyy="2.19155540019017E-08"
+        iyz="1.32348898008484E-22"
+        izz="4.11921701747879E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_5_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_5_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_5_col"
+    type="continuous">
+    <origin
+      xyz="0.32086 0.15463 0.093325"
+      rpy="1.5708 0.39449 0.7854" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="roller_5_col" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_6_col">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 0 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019014E-08"
+        ixy="1.86037447845167E-25"
+        ixz="0"
+        iyy="2.19155540019014E-08"
+        iyz="-1.04823540309471E-24"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_6_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_6_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_6_col"
+    type="continuous">
+    <origin
+      xyz="0.15463 0.32086 0.093325"
+      rpy="1.5708 0 -2.3562" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="roller_6_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_7_col">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 1.38777878078145E-17 -4.16333634234434E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.000989601685880781" />
+      <inertia
+        ixx="2.19155540019015E-08"
+        ixy="-1.19758520507374E-24"
+        ixz="-4.96308367531817E-24"
+        iyy="2.19155540019014E-08"
+        iyz="-1.51127301989149E-24"
+        izz="4.11921701747875E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_7_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_7_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_7_col"
+    type="continuous">
+    <origin
+      xyz="-0.15463 0.32086 0.093325"
+      rpy="1.5708 0 2.3562" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="roller_7_col" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+  <link
+    name="roller_8_col">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_8_col.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://UHL_V6_collision_SIM_V03.SLDASM/meshes/roller_8_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="roller_8_col"
+    type="continuous">
+    <origin
+      xyz="-0.320857811232417 0.154626214467158 0.0933247675946395"
+      rpy="1.57079632679489 0 -0.785398163397453" />
+    <parent
+      link="base_link_col" />
+    <child
+      link="roller_8_col" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1E+16"
+      upper="1E+16"
+      effort="100"
+      velocity="100" />
+    <dynamics
+      damping="0.004"
+      friction="0" />
+  </joint>
+</robot>
