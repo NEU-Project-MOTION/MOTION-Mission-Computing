@@ -4,11 +4,7 @@
 import os
 import argparse
 
-HEADER = ''
-OKGREEN = ''
-WARNING = ''
-FAIL = ''
-ENDC = ''
+ros_skip = ["px4",]
 
 def print_green(str):
     print(f"\033[95m\033[92m{str}\033[0m")
@@ -22,8 +18,11 @@ def print_red(str):
 def parse_args():
     ''' Parse command line arguments '''
     parser = argparse.ArgumentParser(description="Builds all neccesary code. Only builds ROS by default")
-
-    parser.add_argument('-p', "--px4", dest="build_px4", action="store_true", default=False, help="Build PX4")
+    
+    # Don't allow px4 to be built if building for fielded
+    group = parser.add_mutually_exclusive_group(required=False)
+    group.add_argument('-p', "--px4", dest="build_px4", action="store_true", default=False, help="Build PX4")
+    group.add_argument('-f', "--field", dest="build_fielded", action="store_true", default=False, help="Build code for the fielded drone (jetson nano)")
 
     return parser.parse_args()
 
@@ -33,7 +32,10 @@ def main(args):
     ws_location = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
     # Build ros2 packages
-    ret = os.system("colcon build --symlink-install --packages-skip px4")
+    if args.build_fielded:
+        ros_skip.append("realsense_gazebo_plugin")
+
+    ret = os.system(f"colcon build --symlink-install --packages-skip {' '.join(ros_skip)}")
     if ret != 0:
         print_red("ROS Failed to build")
     else:
