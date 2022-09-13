@@ -34,6 +34,7 @@ def main(args):
     # Build ros2 packages
     if args.build_fielded:
         ros_skip.append("realsense_gazebo_plugin")
+        ros_skip.append("crack_gazebo")
 
     ret = os.system(f"colcon build --symlink-install --packages-skip {' '.join(ros_skip)}")
     if ret != 0:
