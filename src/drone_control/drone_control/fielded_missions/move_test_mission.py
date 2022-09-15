@@ -9,24 +9,30 @@ def main():
     rclpy.init() # init ros
 
     drone = BasicDrone() # init drone (drone is a ros node)
-    drone.set_param("NAV_RCL_ACT", 0) # Alow takeoff without RC
-    drone.set_param("COM_RCL_EXCEPT", 4) # Allow offboard without RC
 
     drone.get_logger().info("Takeoff to 2.5m...")
     drone.arm_takeoff(altitude=2.5) # Takeoff
+
+    input("Press enter to continue...")
 
     drone.get_logger().info("Moving 1m east...")
     drone.set_local_target(target_east=1, target_north=0, target_up=2.5, target_yaw=0)
     drone.enable_offboard() # enable "offboard" control mode (aka autonomous mode)
     time.sleep(5)
 
+    input("Press enter to continue...")
+
     drone.get_logger().info("Rotating 90...")
     drone.set_local_target(target_east=1, target_north=0, target_up=2.5, target_yaw=90)
     time.sleep(5)
 
+    input("Press enter to continue...")
+
     drone.get_logger().info("Moving back...")
     drone.set_local_target(target_east=0, target_north=0, target_up=2.5, target_yaw=0) # move back
     time.sleep(5)
+
+    input("Press enter to continue...")
 
     drone.get_logger().info("Landing...")
     drone.land() # Land

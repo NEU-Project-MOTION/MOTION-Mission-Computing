@@ -25,10 +25,11 @@ setup(
     entry_points={
         'console_scripts': [
             # Put executables here (ex missions)
+            'sitl = drone_control.sitl:main',
             'simple_mission = drone_control.example_missions.simple_mission:main',
             'simple_duo_mission = drone_control.example_missions.simple_duo_mission:main',
             'camera_test_mission = drone_control.example_missions.camera_test_mission:main',
-            'sitl = drone_control.sitl:main',
+            'move_test_mission = drone_control.fielded_missions.move_test_mission:main',
         ],
     },
 )

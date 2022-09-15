@@ -1,0 +1,19 @@
+# To apply this service to the system do the following:
+# 1. Rename the user (line 15) to the name of the user you want to use for the service
+# 2. Run `cp mavros.service /etc/systemd/system/`
+# 3. Run `systemctl enable mavros.service`
+# 4. Run `systemctl start mavros.service`
+
+[Unit]
+Description=Mavros
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=en
+ExecStart=bash -c "source ~/MOTION-Mission-Computing/scripts/setup.sh && ros2 launch drone_control start_fielded_drone.launch.py"
+
+[Install]
+WantedBy=multi-user.target

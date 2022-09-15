@@ -4,6 +4,8 @@
 
 import threading
 import time
+import math
+from typing import Any
 from scipy.spatial.transform import Rotation
 # rclpy (Ros Client Library PYthon)
 import rclpy
@@ -12,6 +14,7 @@ from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.qos import qos_profile_sensor_data
 # ROS Messages
+from rcl_interfaces.srv import SetParameters
 from mavros_msgs.srv import CommandTOL, CommandBool, CommandLong
 from mavros_msgs.msg import Altitude, State
 from geometry_msgs.msg import PoseStamped, Quaternion
@@ -19,13 +22,15 @@ from geometry_msgs.msg import PoseStamped, Quaternion
 # Base mission class which extends a ROS2 node
 class BasicDrone(Node):
 
-    # Public vars
-    altitude = None     #mavros_msgs/msg/Altitude
-    current_pose = None #geopetry_msgs/msg/Pose
-    mavros_state = None #mavros_msgs/msg/State
+    ## Public vars
+    altitude: Altitude = None
+    current_pose: PoseStamped = None 
+    mavros_state: State = None 
 
-    # Private vars
+
+    ## Private vars
     _local_target_pos = PoseStamped()
+
 
     def __init__(self, namespace="drone", node_name="drone_control_node"):
         """ Initialiser to be called in sub-classes
@@ -41,7 +46,8 @@ class BasicDrone(Node):
         self._takeoff_srv = self.create_client(CommandTOL, "mavros/cmd/takeoff")
         self._land_srv = self.create_client(CommandTOL, "mavros/cmd/land")
         self._command_srv = self.create_client(CommandLong, "mavros/cmd/command")
-    
+        self._param_set_srv = self.create_client(SetParameters, "mavros/param/set_parameters")
+
         # ROS2 publishers (data sent to the drone such as target position)
         self._local_pos_pub = self.create_publisher(PoseStamped, "mavros/setpoint_position/local", 10)
 
@@ -59,6 +65,32 @@ class BasicDrone(Node):
             self.get_logger().info("Waiting for MAVROS...", throttle_duration_sec=1, skip_first=True)
         
 
+    ##############
+    # API functions
+    ##############
+
+
+    def set_param(self, param_name: str, param_value: Any, param_type:rclpy.parameter.Parameter.Type=rclpy.parameter.Parameter.Type.INTEGER):
+        """Sets a parameter on the drone
+
+        Args:
+            param_name (string): The name of the parameter to set
+            param_value (int): The value to set the parameter to
+        """
+        # check if the service is ready
+        ready = self._param_set_srv.wait_for_service(timeout_sec=5.0)
+        if not ready:
+            self.get_logger().error(f'MAVROS param service call timed out ({param_name})')
+            return
+
+        # call the param service
+        param = rclpy.parameter.Parameter(param_name, param_type, param_value)
+
+        param_set = SetParameters.Request()
+        param_set.parameters = [param.to_parameter_msg(), ]
+        self._param_set_srv.call(param_set)
+
+
     def arm_takeoff(self, altitude=2.5, blocking=True):
         """Attempts to arm and takeoff (blocks until reaches target altitude)
 
@@ -74,12 +106,12 @@ class BasicDrone(Node):
             self.get_logger().error(f"Failed to takeoff (min altitude is 2.5m)")
             return False
 
-        #Fail if we cant read MAVROS altitude
+        # fail if we cant read MAVROS altitude
         if(self.altitude is None):
             self.get_logger().error(f"Failed to takeoff (MAVROS altitude not set)")
             return False
 
-        # Request arm through MAVROS service
+        # request arm through MAVROS service
         arm_request = CommandBool.Request()
         arm_request.value = True
         arm_responce = self._arm_srv.call(arm_request)
@@ -88,7 +120,7 @@ class BasicDrone(Node):
             self.get_logger().error(f"Failed to arm before takeoff (MAV_RESULT={arm_responce.result})")
             return False # Failure
 
-        # Request takeoff
+        # request takeoff
         takeoff_request = CommandTOL.Request()
         takeoff_request.altitude = float(altitude+self.altitude.amsl) # Set target altitude (convert to above sea level)
         takeoff_request.latitude = float("nan") # nan tells it to use current lat/lon/yaw
@@ -102,11 +134,12 @@ class BasicDrone(Node):
             self._arm_srv.call(arm_request)
             return False # Failure
 
-        # Block while taking off
+        # block while taking off
         while(rclpy.ok() and blocking and self.altitude.local < altitude-0.2):
             pass
 
         return True # Success
+
 
     #TODO fix land not proceeding if already landed
     def land(self):
@@ -146,7 +179,7 @@ class BasicDrone(Node):
 
 
     def set_local_target(self, target_east, target_north, target_up, target_yaw=0):
-        """Sets the target local position in ENU relative to the home position
+        """Sets the target local position in ENU relative to the home position (non-blocking)
 
         Args:
             target_east (float): Meters east 
@@ -164,6 +197,38 @@ class BasicDrone(Node):
         self._local_target_pos.pose.orientation.y = float(rot[1])
         self._local_target_pos.pose.orientation.z = float(rot[2])
         self._local_target_pos.pose.orientation.w = float(rot[3])
+
+
+    def go_to_position(self, east: float, north: float, up: float, yaw:float=0, print_distance=False, reached_radius:float=1):
+        """Flys the drone to a NAU position, blocking until it gets there
+
+        Args:
+            east (float): Meters east 
+            north (float): Meters north
+            up (float): Meters up
+            yaw (float): Rotation in Degrees
+            reached_radius (float): Distance in m from target position to consider it reached
+        """
+
+        self.set_local_target(east, north, up, yaw)
+
+        # block until we reach the target position
+        while(rclpy.ok() and self.distance_to_target() > reached_radius):
+            if print_distance:
+                self.get_logger().info(f"Distance to target: {self.distance_to_target()}")
+            time.sleep(0.1) # Check at 10Hz
+
+
+    def distance_to_target(self):
+        """Returns the distance to the target position in meters
+
+        Returns:
+            float: Distance to target in meters
+        """
+        return math.sqrt(
+            (self._local_target_pos.pose.position.x-self.current_pose.pose.position.x)**2 + 
+            (self._local_target_pos.pose.position.y-self.current_pose.pose.position.y)**2 + 
+            (self._local_target_pos.pose.position.z-self.current_pose.pose.position.z)**2)        
 
 
     def get_mode(self):
