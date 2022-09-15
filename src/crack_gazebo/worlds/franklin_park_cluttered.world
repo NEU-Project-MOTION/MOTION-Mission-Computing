@@ -214,44 +214,6 @@
       <shadows>1</shadows>
     </scene>
     <wind/>
-    <model name='bus'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <scale>0.01 0.01 0.01</scale>
-              <uri>model://bus/meshes/bus.obj</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <scale>0.01 0.01 0.01</scale>
-              <uri>model://bus/meshes/bus.obj</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose>-9.33878 9.64108 0 0 -0 0</pose>
-    </model>
     <model name='collapsed_fire_station'>
       <static>1</static>
       <link name='link'>
@@ -611,201 +573,11 @@
       </link>
       <pose>14.9271 10.6822 0 0 -0 0</pose>
     </model>
-    <model name='fire_hydrant'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://fire_hydrant/meshes/fire_hydrant.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://fire_hydrant/meshes/fire_hydrant.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose>26.158 11.6115 0 0 -0 0</pose>
-    </model>
-    <model name='fire_truck'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <scale>0.1 0.1 0.1</scale>
-              <uri>model://fire_truck/meshes/fire_truck.obj</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <scale>0.1 0.1 0.1</scale>
-              <uri>model://fire_truck/meshes/fire_truck.obj</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose>13.3415 -13.7092 0 0 -0 0</pose>
-    </model>
-    <model name='gazebo'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <scale>3 3 2.5</scale>
-              <uri>model://gazebo/meshes/gazebo.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <scale>3 3 2.5</scale>
-              <uri>model://gazebo/meshes/gazebo.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose>28.47 2.71197 0 0 -0 0</pose>
-    </model>
-    <model name='ksql_ground'>
-      <pose>313.62 -345.758 -3.5 0 -0 0</pose>
-      <static>1</static>
-      <link name='body'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://ksql_airport/media/SanCarlosAirport_Terrain.DAE</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://ksql_airport/media/SanCarlosAirport_Terrain.DAE</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <link name='buildings'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://ksql_airport/media/SanCarlosAirport_Buildings.DAE</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://ksql_airport/media/SanCarlosAirport_Buildings.DAE</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
     <state world_name='default'>
-      <sim_time>471 252000000</sim_time>
-      <real_time>496 333973515</real_time>
-      <wall_time>1659995076 641584775</wall_time>
-      <iterations>117813</iterations>
-      <model name='bus'>
-        <pose>-9.33878 9.64108 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>-9.33878 9.64108 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
+      <sim_time>864 660000000</sim_time>
+      <real_time>394 62492124</real_time>
+      <wall_time>1663271609 145668872</wall_time>
+      <iterations>98352</iterations>
       <model name='collapsed_fire_station'>
         <pose>-11.6657 -12.9367 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -827,10 +599,10 @@
         </link>
       </model>
       <model name='collapsed_industrial'>
-        <pose>35.4761 -8.50833 0 0 -0 0</pose>
+        <pose>35.4761 -6.14714 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>35.4761 -8.50833 0 0 -0 0</pose>
+          <pose>35.4761 -6.14714 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -851,26 +623,6 @@
         <scale>1 1 1</scale>
         <link name='link'>
           <pose>14.9271 10.6822 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='fire_hydrant'>
-        <pose>26.158 11.6115 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>26.158 11.6115 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='fire_truck'>
-        <pose>13.3415 -13.7092 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>13.3415 -13.7092 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -898,27 +650,31 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='gazebo'>
-        <pose>28.47 2.71197 0 0 -0 0</pose>
+      <model name='truss_bridge'>
+        <pose>21.4886 19.9076 4.39497 0 0 -1.19759</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>28.47 2.71197 0 0 -0 0</pose>
+          <pose>21.4886 19.9076 4.39497 0 0 -1.19759</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='ksql_ground'>
-        <pose>313.62 -345.758 -3.5 0 -0 0</pose>
+      <model name='truss_bridge_clone'>
+        <pose>23.883 13.8674 4.39497 0 0 -1.19759</pose>
         <scale>1 1 1</scale>
-        <link name='body'>
-          <pose>313.62 -345.758 -3.5 0 -0 0</pose>
+        <link name='link'>
+          <pose>23.883 13.8674 4.39497 0 0 -1.19759</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <link name='buildings'>
-          <pose>313.62 -345.758 -3.5 0 -0 0</pose>
+      </model>
+      <model name='truss_bridge_clone_0'>
+        <pose>37.6672 8.96263 4.39497 0 -0 0.288879</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>37.6672 8.96263 4.39497 0 -0 0.288879</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -930,10 +686,118 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>91.0466 46.0578 70.8439 0 0.559522 -2.7968</pose>
+        <pose>72.142 20.0705 29.8186 0 0.583522 -2.94879</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='truss_bridge'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://truss_bridge/meshes/truss_bridge.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://truss_bridge/meshes/truss_bridge.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>17 1 0 0 -0 0</pose>
+    </model>
+    <model name='truss_bridge_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://truss_bridge/meshes/truss_bridge.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://truss_bridge/meshes/truss_bridge.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>23.883 13.8674 4.39497 0 0 -1.19759</pose>
+    </model>
+    <model name='truss_bridge_clone_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://truss_bridge/meshes/truss_bridge.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://truss_bridge/meshes/truss_bridge.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>35.2443 3.2621 4.39497 0 0 -1.19759</pose>
+    </model>
   </world>
 </sdf>
