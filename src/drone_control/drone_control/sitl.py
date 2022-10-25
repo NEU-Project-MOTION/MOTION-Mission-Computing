@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 """
 File to start PX4 SITL with given arguments.
 """

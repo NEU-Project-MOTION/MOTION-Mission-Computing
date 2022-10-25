@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #
 # Use with start_single_sim.launch.py
 #

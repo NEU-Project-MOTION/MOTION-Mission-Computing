@@ -63,24 +63,23 @@ def parse_jinja_model(name):
 
 
 
-
 """ Main launch function that ROS2 will run when we use `ros2 launch ...` """
 def generate_launch_description():
+    config = os.path.join(get_package_share_directory('drone_control'),
+    'config',
+    'params.yaml'
+    )
+
     # Create a launch description to start our nodes
     launch_description = LaunchDescription([
         # Launch the MAVROS node
+        
         Node(
-                package="mavros", 
-                executable="mavros_node",
-                output="screen",
-                namespace=f"{namespace}/mavros",
-                parameters=[{
-                        "fcu_url": "udp://:14540@127.0.0.1:14557",
-                        "gcs_url": "",
-                        "target_system_id": 1,
-                        "target_component_id": 1,
-                        "fcu_protocol": "v2.0",
-                    }]
+            package="mavros", 
+            executable="mavros_node",
+            output="screen",
+            namespace=f"{namespace}/mavros",
+            parameters=[config]
             ),
 
             # Launch px4 sitl (includes a function vs a node i think?)
