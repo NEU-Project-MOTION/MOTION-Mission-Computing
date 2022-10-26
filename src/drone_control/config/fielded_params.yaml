@@ -1,0 +1,23 @@
+
+/drone/mavros:
+  mavros_node:
+    ros__parameters:
+      fcu_url: "/dev/ttyTHS2:921600"
+      gcs_url: "udp://@localhost"
+      target_system_id: 1
+      target_component_id: 1
+      fcu_protocol: "v2.0"
+  
+  local_position:
+    ros__parameters:
+      tf:
+        send: True  
+
+/drone/camera:
+  camera:
+    tf_publish_rate: 20 
+    pose_fps: 200 
+    pose_enabled: true 
+    publish_odom_tf: true 
+    publish_tf: true 
+    odom_frame_id: "map"

@@ -67,7 +67,7 @@ def parse_jinja_model(name):
 def generate_launch_description():
     config = os.path.join(get_package_share_directory('drone_control'),
     'config',
-    'params.yaml'
+    'sitl_params.yaml'
     )
 
     # Create a launch description to start our nodes
