@@ -21,7 +21,7 @@ class VisionBridge : public rclcpp::Node
 
         // subscribers
         auto sensor_qos = rclcpp::QoS(rclcpp::KeepLast(1), rmw_qos_profile_sensor_data);
-        odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>("/camera/pose/sample", sensor_qos, std::bind(&VisionBridge::OdomInCallback, this, std::placeholders::_1));
+        odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>("/drone/realsense/pose/sample", sensor_qos, std::bind(&VisionBridge::OdomInCallback, this, std::placeholders::_1));
         
         // publishers
         mavros_odom_pub_ = this->create_publisher<nav_msgs::msg::Odometry>("/drone/mavros/odometry/out", 10);

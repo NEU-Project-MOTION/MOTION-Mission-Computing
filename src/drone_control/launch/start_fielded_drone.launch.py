@@ -14,7 +14,7 @@ namespace = "drone"
 def generate_launch_description():
     config = os.path.join(get_package_share_directory('drone_control'),
         'config',
-        'params.yaml'
+        'fielded_params.yaml'
     )
 
     # Create a launch description to start our nodes
@@ -27,22 +27,6 @@ def generate_launch_description():
             namespace=f"{namespace}/mavros",
             parameters=[config]
             ),
-        # Launch realsense node
-        Node(
-            package="realsense2_camera",
-            executable="realsense2_camera_node",
-            output="screen",
-            namespace=f"{namespace}/realsense",
-            parameters=[config]
-            ),
-        # Launch static transform publisher (camera pointing straight down)
-        Node(
-            package="tf2_ros",
-            executable="static_transform_publisher",
-            output="screen",
-            arguments=["0", "0", "0", "0", "0", "1.5708", "0", "base_link", "camera_pose_frame"]
-            ),
-
     ]) # end LaunchDescription
 
     # Return launch description

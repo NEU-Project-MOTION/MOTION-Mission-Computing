@@ -10,14 +10,31 @@
   
   local_position:
     ros__parameters:
+      frame_id: "map"
       tf:
-        send: True  
+        send: false
+        frame_id: "map"
+        child_frame_id: "base_link"
+        send_fcu: false
 
-/drone/camera:
+  odometry:
+    ros__parameters:
+      fcu:
+        odom_parent_id_des: "map"
+        odom_child_id_des: "base_link"
+
+  time:
+    ros__parameters:
+      time_ref_source: "fcu"  # time_reference source
+      timesync_mode: MAVLINK
+      timesync_avg_alpha: 0.6 # timesync averaging factor
+
+
+/drone/realsense:
   camera:
-    tf_publish_rate: 20 
-    pose_fps: 200 
-    pose_enabled: true 
-    publish_odom_tf: true 
-    publish_tf: true 
-    odom_frame_id: "map"
+    ros__parameters:
+      tf_publish_rate: 20 
+      pose_fps: 200 
+      pose_enabled: true 
+      publish_odom_tf: true 
+      publish_tf: true 
