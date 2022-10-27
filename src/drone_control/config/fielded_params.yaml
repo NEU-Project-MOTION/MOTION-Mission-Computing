@@ -2,12 +2,12 @@
 /drone/mavros:
   mavros_node:
     ros__parameters:
-      fcu_url: "/dev/ttyTHS2:921600"
+      fcu_url: "/dev/ttyTHS1:921600"
       gcs_url: "udp://@localhost"
       target_system_id: 1
       target_component_id: 1
       fcu_protocol: "v2.0"
-  
+
   local_position:
     ros__parameters:
       frame_id: "map"
