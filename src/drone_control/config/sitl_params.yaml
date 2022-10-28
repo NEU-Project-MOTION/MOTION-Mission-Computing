@@ -28,6 +28,26 @@
       timesync_mode: MAVLINK
       timesync_avg_alpha: 0.6 # timesync averaging factor
 
+  mavros:
+    ros__parameters:
+      plugin_allowlist: 
+        - altitude
+        - command
+        - companion_process_status
+        - global_position
+        - home_position
+        - local_position
+        - odometry
+        - onboard_computer_status
+        - param
+        - play_tune
+        - setpoint_position
+        - setpoint_raw
+        - sys_status
+        - sys_time
+
+  
+
 /drone/realsense:
   camera:
     ros__parameters:
@@ -36,3 +56,4 @@
       pose_enabled: true 
       publish_odom_tf: true 
       publish_tf: true 
+
