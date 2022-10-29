@@ -27,6 +27,23 @@ def generate_launch_description():
             namespace=f"{namespace}/mavros",
             parameters=[config]
             ),
+        # Launch realsense T265 node
+        Node(
+            package="realsense2_camera",
+            executable="realsense2_camera_node",
+            output="screen",
+            namespace=f"{namespace}/T265",
+            parameters=[config]
+            ),
+        # Launch realsense D435i node
+        Node(
+            package="realsense2_camera",
+            executable="realsense2_camera_node",
+            output="screen",
+            namespace=f"{namespace}/D435i",
+            parameters=[config]
+            ),
+
     ]) # end LaunchDescription
 
     # Return launch description

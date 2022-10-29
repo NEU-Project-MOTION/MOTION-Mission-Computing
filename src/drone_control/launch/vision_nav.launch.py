@@ -19,14 +19,6 @@ def generate_launch_description():
 
     # Create a launch description to start our nodes
     launch_description = LaunchDescription([
-        # Launch realsense node
-        Node(
-            package="realsense2_camera",
-            executable="realsense2_camera_node",
-            output="screen",
-            namespace=f"{namespace}/realsense",
-            parameters=[config]
-            ),
         # Launch vision_bridge node
         Node(
             package="drone_control",

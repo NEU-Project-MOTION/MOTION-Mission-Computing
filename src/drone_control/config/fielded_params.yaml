@@ -47,12 +47,30 @@
         - sys_status
         - sys_time
 
-        
-/drone/realsense:
+
+/drone/T265:
   camera:
     ros__parameters:
+      device_type: "t265"
+
+      enable_fisheye1: true
+      enable_fisheye2: false
+
       tf_publish_rate: 20 
       pose_fps: 200 
       pose_enabled: true 
       publish_odom_tf: true 
       publish_tf: true 
+      enable_ir1: false
+
+/drone/D425i:
+  camera:
+    ros__parameters:
+      device_type: "d435i"
+      pointcloud:
+        enable: true
+
+      enable_infra1: false
+      enable_infra2: false
+      enable_color: true
+      
