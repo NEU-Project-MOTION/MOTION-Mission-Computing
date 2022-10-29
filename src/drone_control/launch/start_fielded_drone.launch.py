@@ -40,7 +40,7 @@ def generate_launch_description():
             package="realsense2_camera",
             executable="realsense2_camera_node",
             output="screen",
-            namespace=f"{namespace}/D435i",
+            namespace=f"{namespace}/D435",
             parameters=[config]
             ),
 

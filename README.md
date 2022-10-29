@@ -26,7 +26,7 @@ Repository for MOTION's companion computer
 - The Jetson Nano's IP over USB is `192.168.55.100`
 - Jetson slow AF wifi fix: `sudo iw dev wlan0 set power_save off`
 - `donatello@nuav`
-- Run realsense publisher: `ros2 launch realsense2_camera rs_launch.py`
+- Jetson realsense: `https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_jetson.md`
 - To convert realsense to laser scan (2D): `ros2 run depthimage_to_laserscan depthimage_to_laserscan_node --ros-args -r depth:=/camera/depth/image_rect_raw -r depth_camera_info:=/camera/depth/camera_info -r scan:=/camera/scan`
 - Camera calibration: [Docs here](https://navigation.ros.org/tutorials/docs/camera_calibration.html)
 - Checkerboard generator: [Website](https://calib.io/pages/camera-calibration-pattern-generator)

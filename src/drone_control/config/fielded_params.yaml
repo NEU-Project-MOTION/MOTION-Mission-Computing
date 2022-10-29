@@ -63,10 +63,10 @@
       publish_tf: true 
       enable_ir1: false
 
-/drone/D425i:
+/drone/D435:
   camera:
     ros__parameters:
-      device_type: "d435i"
+      device_type: "d4."
       pointcloud:
         enable: true
 
