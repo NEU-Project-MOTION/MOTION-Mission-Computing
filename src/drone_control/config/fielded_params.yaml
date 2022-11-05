@@ -54,25 +54,76 @@
       device_type: "t265"
       camera_name: "T265"
 
-      enable_fisheye1: true
+      enable_fisheye1: false
       enable_fisheye2: false
 
-      tf_publish_rate: 20 
+      tf_publish_rate: 50.0 
       pose_fps: 200 
       pose_enabled: true 
       publish_odom_tf: true 
       publish_tf: true 
-      enable_ir1: false
 
+      unite_imu_method: 0
+      gyro_fps: 0
+      accel_fps: 0
+      enable_gyro: false
+      enable_accel: false
+      enable_sync: false
+      
+      tracking_module:
+        profile: '0,0,0'
+
+
+
+# https://github.com/IntelRealSense/realsense-ros/blob/ros2-beta/realsense2_camera/launch/rs_launch.py
 /drone/D435:
   camera:
     ros__parameters:
       device_type: "d4."
       camera_name: "D435"
-      pointcloud:
-        enable: true
 
+      unite_imu_method: 0
+      enable_depth: true
+      enable_color: true
       enable_infra1: false
       enable_infra2: false
-      enable_color: true
+      infra_rgb: false
+      gyro_fps: 0
+      accel_fps: 0
+      enable_gyro: false
+      enable_accel: false
+      enable_sync: false
+      clip_distance: -2.0
+      linear_accel_cov: 0.01
+      allow_no_texture_points: false
+
+      align_depth:
+        enable: false
+
+      rgb_camera:
+        profile: '0,0,0'
+
+      tracking_module:
+        profile: '0,0,0'
+
+      colorizer:
+        enable: false
+
+      pointcloud:
+        enable: false
+        stream_filter: 2
+        stream_index_filter: 0
+        ordered_pc: false
+
+      decimation_filter:
+        enable: false
+
+      depth_module:
+        profile: '0,0,0'
+        exposure:
+          1: 7500
+          2: 1
+        gain:
+          1: 16
+          2: 16
       

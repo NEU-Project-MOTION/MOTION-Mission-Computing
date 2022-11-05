@@ -1,3 +1,5 @@
+src/realsense-ros/
+
 devel/
 logs/
 build/
