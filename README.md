@@ -31,4 +31,5 @@ Repository for MOTION's companion computer
 - Camera calibration: [Docs here](https://navigation.ros.org/tutorials/docs/camera_calibration.html)
 - Checkerboard generator: [Website](https://calib.io/pages/camera-calibration-pattern-generator)
 - Run T625: `ros2 launch realsense2_camera rs_launch.py tf_publish_rate:=20 pose_enabled:=true pose_fps:=200 publish_odom_tf:=true publish_tf:=true`
-
+- find video device parameters `ffmpeg -f v4l2 -list_formats all -i /dev/video0`
+- record video with ffmpeg `ffmpeg -f v4l2 -framerate 25 -video_size 640x480 -i /dev/video0 output.mkv`

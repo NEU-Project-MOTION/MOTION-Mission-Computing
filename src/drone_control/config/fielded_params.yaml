@@ -52,6 +52,7 @@
   camera:
     ros__parameters:
       device_type: "t265"
+      camera_name: "T265"
 
       enable_fisheye1: true
       enable_fisheye2: false
@@ -67,6 +68,7 @@
   camera:
     ros__parameters:
       device_type: "d4."
+      camera_name: "D435"
       pointcloud:
         enable: true
 

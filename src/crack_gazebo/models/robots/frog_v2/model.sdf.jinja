@@ -247,6 +247,83 @@
       <robotNamespace></robotNamespace> <!-- Had to add as the plugin was finding invisible tags and this ends tag search -->
     </plugin>
 
+    <!-- downwards fisheye camera -->
+    <joint name='fisheye_camera_joint' type='fixed'>
+      <child>fisheye_camera_link</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name="fisheye_camera_link">
+      <pose>-.09 0 -.04 0 1.570 0</pose>
+      <visual name="fisheye_camera_link_visual">
+        <pose>-0.04 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://robots/frog_v2/meshes/D435.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>4.3008e-05</ixx>
+          <ixy>3.1633e-07</ixy>
+          <ixz>-1.3724e-07</ixz>
+          <iyy>5.2016e-06</iyy>
+          <iyz>1.916e-08</iyz>
+          <izz>4.2419e-05</izz>
+        </inertia>
+      </inertial>
+      <sensor type="wideanglecamera" name="fisheye_camera">
+        <update_rate>30.0</update_rate>
+        <camera name="fisheye">
+          <horizontal_fov>2.96706</horizontal_fov>
+          <image>
+            <width>848</width>
+            <height>800</height>
+            <format>L8</format>
+          </image>
+          <lens>
+          <type>custom</type>
+          <!-- manually defined mapping function r = c1*f*fun(theta/c2 + c3) -->
+          <!-- More information here: https://en.wikipedia.org/wiki/Fisheye_lens#Mapping_function -->
+          <custom_function>
+            <c1>1.05</c1>   <!-- linear scaling -->
+            <c2>4</c2>      <!-- angle scaling -->
+            <f>1.0</f>      <!-- one more scaling parameter -->
+            <fun>sin</fun>  <!-- one of sin,tan,id -->
+          </custom_function>            
+          <scale_to_hfov>true</scale_to_hfov>
+            <cutoff_angle>2.96706</cutoff_angle>
+            <env_texture_size>1024</env_texture_size>
+          </lens>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name="fisheye_camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>drone/fisheye_camera</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+    </link>
+
     {% endif %}
     
 
