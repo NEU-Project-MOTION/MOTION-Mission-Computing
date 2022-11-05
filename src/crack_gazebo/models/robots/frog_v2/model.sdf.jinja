@@ -90,6 +90,7 @@
     </joint>
 
     {% if include_camera %}
+
     <link name="realsense_link">
       <pose>0.052 0 0.0186 0 {{ camera_tilt }} 0</pose>
       <visual name="realsense_link_visual">
@@ -200,7 +201,6 @@
         <visualize>0</visualize>
       </sensor>
     </link>
-
     <joint name='realsense_joint' type='fixed'>
       <child>realsense_link</child>
       <parent>base_link</parent>
@@ -221,7 +221,6 @@
         <use_parent_model_frame>0</use_parent_model_frame>
       </axis>
     </joint>
-
     <plugin name="camera" filename="librealsense_gazebo_plugin.so">
       <prefix>camera</prefix>
       <depthUpdateRate>10.0</depthUpdateRate>
@@ -246,6 +245,10 @@
       <pointCloudCutoff>0.3</pointCloudCutoff>
       <robotNamespace></robotNamespace> <!-- Had to add as the plugin was finding invisible tags and this ends tag search -->
     </plugin>
+
+    {% endif %}
+
+    {% if fisheye_camera %}
 
     <!-- downwards fisheye camera -->
     <joint name='fisheye_camera_joint' type='fixed'>
@@ -295,7 +298,7 @@
           </custom_function>            
           <scale_to_hfov>true</scale_to_hfov>
             <cutoff_angle>2.96706</cutoff_angle>
-            <env_texture_size>1024</env_texture_size>
+            <env_texture_size>512</env_texture_size>
           </lens>
           <clip>
             <near>0.02</near>
@@ -325,7 +328,8 @@
     </link>
 
     {% endif %}
-    
+
+
 
     <link name='prop_1'>
       <pose>0.23937 -0.23937 0.073136 0 -0 1.5708</pose>

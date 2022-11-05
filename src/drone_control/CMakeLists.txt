@@ -60,6 +60,7 @@ install(PROGRAMS
   drone_control/example_missions/simple_mission.py
   drone_control/example_missions/camera_test_mission.py
   drone_control/example_missions/simple_duo_mission.py
+  drone_control/example_missions/waypoint_mission.py
   drone_control/fielded_missions/move_test_mission.py
   DESTINATION lib/${PROJECT_NAME}
 )

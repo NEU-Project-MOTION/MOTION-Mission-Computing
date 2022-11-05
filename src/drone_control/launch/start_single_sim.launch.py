@@ -48,8 +48,10 @@ def parse_jinja_model(name):
                 "serial_device": "", # For HITL
                 "serial_baudrate": "", # For HITL
                 "hil_mode": "0", # For HITL
-                "include_camera": True,
-                "camera_tilt": 0.0}
+                "include_camera": False,
+                "camera_tilt": 0.0,
+                "fisheye_camera": False
+                }
 
     tmp_path = f'/tmp/{name}.sdf'
     templateFilePath = jinja2.FileSystemLoader(os.path.dirname(file_path))
