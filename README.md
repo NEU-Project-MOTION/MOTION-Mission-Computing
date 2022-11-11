@@ -10,6 +10,7 @@ Repository for MOTION's companion computer
 - MavROS: `sudo apt install ros-foxy-mavros ros-foxy-mavros-extras`
 - MavROS Fix: `sudo geographiclib-get-geoids egm96-5`
 - XTerm: `sudo apt install xterm`
+- QGroundControl: https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html
 
 ### Optional
 - ZSH Autocomplete: `eval "$(register-python-argcomplete3 ros2)"`
@@ -33,3 +34,19 @@ Repository for MOTION's companion computer
 - Run T625: `ros2 launch realsense2_camera rs_launch.py tf_publish_rate:=20 pose_enabled:=true pose_fps:=200 publish_odom_tf:=true publish_tf:=true`
 - find video device parameters `ffmpeg -f v4l2 -list_formats all -i /dev/video0`
 - record video with ffmpeg `ffmpeg -f v4l2 -framerate 25 -video_size 640x480 -i /dev/video0 output.mkv`
+
+# Running Tunnel Mission With Stella
+Make sure everything is the newest colcon build
+Note: Can follow drone in sim by going to view in Gazebo and selecting the realsense image_raw topic
+## Terminal 1
+- ```source scripts/setup.sh```
+- ```sim```
+## Terminal 2
+- Go to location of QGroundControl
+- ```./QGroundControl.AppImage```
+- Upload loop1test.plan into Qgroundcontrol
+- Change form Hold to Mission in upper right corner
+## Terminal 3
+- Go to MOTION-STELLA-VSLAM
+- ```source install/setup.sh```
+- ros2 launch cracked_stella mono_slam.launch.py
