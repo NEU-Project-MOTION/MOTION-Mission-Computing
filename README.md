@@ -37,7 +37,7 @@ Repository for MOTION's companion computer
 
 # Running Tunnel Mission With Stella
 Make sure everything is the newest colcon build
-Note: Can follow drone in sim by going to view in Gazebo and selecting the realsense image_raw topic
+- Note: Can follow drone in sim by going to view in Gazebo and selecting the realsense image_raw topic
 ## Terminal 1
 - ```source scripts/setup.sh```
 - ```sim```
