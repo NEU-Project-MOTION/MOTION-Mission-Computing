@@ -49,4 +49,4 @@ Make sure everything is the newest colcon build
 ## Terminal 3
 - Go to MOTION-STELLA-VSLAM
 - ```source install/setup.sh```
-- ros2 launch cracked_stella sim_slam_launch.py
+- ros2 launch cracked_stella sim_slam.launch.py
