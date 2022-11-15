@@ -25,6 +25,7 @@ def generate_launch_description():
             executable="mavros_node",
             output="screen",
             namespace=f"{namespace}/mavros",
+            arguments=['--ros-args', '--log-level', 'WARN'],
             parameters=[config],
             respawn=True
             ),
@@ -34,6 +35,7 @@ def generate_launch_description():
             executable="t265_camera_node",
             output="screen",
             namespace=f"{namespace}/T265",
+            arguments=['--ros-args', '--log-level', 'DEBUG'],
             parameters=[config],
             respawn=True
             ),
