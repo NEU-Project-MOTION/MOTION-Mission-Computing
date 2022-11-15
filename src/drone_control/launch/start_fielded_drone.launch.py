@@ -25,7 +25,8 @@ def generate_launch_description():
             executable="mavros_node",
             output="screen",
             namespace=f"{namespace}/mavros",
-            parameters=[config]
+            parameters=[config],
+            arguments=['--ros-args', '--log-level', 'WARN']
             ),
         # Launch realsense T265 node
         Node(
