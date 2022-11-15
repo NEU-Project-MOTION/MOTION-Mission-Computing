@@ -16,21 +16,11 @@ from rclpy.qos import qos_profile_sensor_data
 # ROS Messages
 from rcl_interfaces.srv import SetParameters
 from mavros_msgs.srv import CommandTOL, CommandBool, CommandLong
-from mavros_msgs.msg import Altitude, State
+from mavros_msgs.msg import Altitude, State, PositionTarget
 from geometry_msgs.msg import PoseStamped, Quaternion
 
 # Base mission class which extends a ROS2 node
 class BasicDrone(Node):
-
-    ## Public vars
-    altitude: Altitude = None
-    current_pose: PoseStamped = None 
-    mavros_state: State = None 
-
-
-    ## Private vars
-    _local_target_pos = PoseStamped()
-
 
     def __init__(self, namespace="drone", node_name="drone_control_node"):
         """ Initialiser to be called in sub-classes
@@ -41,6 +31,14 @@ class BasicDrone(Node):
         """
         super().__init__(node_name=node_name, namespace=namespace) # Init ros2 node
 
+        ## Public vars
+        self.altitude: Altitude = None
+        self.current_pose: PoseStamped = None 
+        self.mavros_state: State = None 
+
+        ## Private vars
+        self._local_target_pos: PositionTarget = None
+
         # ROS2 service clients (commands to mavros usually)
         self._arm_srv = self.create_client(CommandBool, "mavros/cmd/arming")
         self._takeoff_srv = self.create_client(CommandTOL, "mavros/cmd/takeoff")
@@ -49,7 +47,7 @@ class BasicDrone(Node):
         self._param_set_srv = self.create_client(SetParameters, "mavros/param/set_parameters")
 
         # ROS2 publishers (data sent to the drone such as target position)
-        self._local_pos_pub = self.create_publisher(PoseStamped, "mavros/setpoint_position/local", 10)
+        self._local_pos_pub = self.create_publisher(PositionTarget, "mavros/setpoint_raw/local", 10)
 
         # ROS2 subscribers (data read from the drone such as altitude)
         self._altitude_sub = self.create_subscription(Altitude, "mavros/altitude", self.altitude_cb, qos_profile_sensor_data)
@@ -61,9 +59,12 @@ class BasicDrone(Node):
         threading.Thread(target=self._publish_position, daemon=True).start()
 
         # Wait for MAVROS to start
-        while(rclpy.ok() and self.altitude is None):
+        while(rclpy.ok() and self.mavros_state is None):
             self.get_logger().info("Waiting for MAVROS...", throttle_duration_sec=1, skip_first=True)
-        
+
+        while(rclpy.ok() and not self.mavros_state.connected):
+            self.get_logger().info("Waiting for PX4...", throttle_duration_sec=1, skip_first=True)
+
 
     ##############
     # API functions
@@ -91,6 +92,7 @@ class BasicDrone(Node):
         self._param_set_srv.call(param_set)
 
 
+    # TODO do nothing if already flying
     def arm_takeoff(self, altitude=2.5, blocking=True):
         """Attempts to arm and takeoff (blocks until reaches target altitude)
 
@@ -141,7 +143,7 @@ class BasicDrone(Node):
         return True # Success
 
 
-    #TODO fix land not proceeding if already landed
+    # TODO fix land not proceeding if already landed
     def land(self):
         """Land at the current location (blocks until landed)
 
@@ -167,9 +169,20 @@ class BasicDrone(Node):
 
 
     # TODO look into why mavros/set_mode doesn't work
-    def enable_offboard(self):
+    def enable_offboard(self, set_target_current_position=True):
         """Sets the drone into OFFBOARD mode such that it starts moving to the target position set via `set_local_target`
         """
+
+        # set initial target
+        if set_target_current_position:
+            self.set_local_target(self.current_pose.pose.position.x,
+                                  self.current_pose.pose.position.y,
+                                  self.current_pose.pose.position.z)
+
+        # force publish a setpoint now to allow offboard swap
+        self._local_pos_pub.publish(self._local_target_pos)
+
+        # change mode
         command_request = CommandLong.Request()
         command_request.command = int(176) #MAV_CMD_DO_SET_MODE
         command_request.param1 = float(209.0) #OFFBOARD, apparently
@@ -187,19 +200,22 @@ class BasicDrone(Node):
             target_up (float): Meters up
             target_yaw (float): Rotation in Degrees
         """
-        self._local_target_pos.pose.position.x = float(target_east)
-        self._local_target_pos.pose.position.y = float(target_north)
-        self._local_target_pos.pose.position.z = float(target_up)
+        # first time setup
+        # https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NEDZ
+        if self._local_target_pos is None:
+            self._local_target_pos = PositionTarget()
+            self._local_target_pos.coordinate_frame = PositionTarget.FRAME_LOCAL_NED
+            self._local_target_pos.type_mask = 0b100111111000 # ignore all but pos and yaw
 
-        # Convert YAW to a "quaternion" rotation that is required by mavros
-        rot = Rotation.from_euler("xyz", [0, 0, target_yaw], degrees=True).as_quat()
-        self._local_target_pos.pose.orientation.x = float(rot[0])
-        self._local_target_pos.pose.orientation.y = float(rot[1])
-        self._local_target_pos.pose.orientation.z = float(rot[2])
-        self._local_target_pos.pose.orientation.w = float(rot[3])
+        # set target
+        self._local_target_pos.position.x = float(target_east)
+        self._local_target_pos.position.y = float(target_north)
+        self._local_target_pos.position.z = float(target_up)
+
+        self._local_target_pos.yaw = float(target_yaw)
 
 
-    def go_to_position(self, east: float, north: float, up: float, yaw:float=0, print_distance=False, reached_radius:float=1):
+    def go_to_position(self, east: float, north: float, up: float, yaw: float=0, print_distance=False, reached_radius:float=1):
         """Flys the drone to a NAU position, blocking until it gets there
 
         Args:
@@ -226,9 +242,9 @@ class BasicDrone(Node):
             float: Distance to target in meters
         """
         return math.sqrt(
-            (self._local_target_pos.pose.position.x-self.current_pose.pose.position.x)**2 + 
-            (self._local_target_pos.pose.position.y-self.current_pose.pose.position.y)**2 + 
-            (self._local_target_pos.pose.position.z-self.current_pose.pose.position.z)**2)        
+            (self._local_target_pos.position.x-self.current_pose.pose.position.x)**2 + 
+            (self._local_target_pos.position.y-self.current_pose.pose.position.y)**2 + 
+            (self._local_target_pos.position.z-self.current_pose.pose.position.z)**2)        
 
 
     def get_mode(self):
@@ -265,6 +281,7 @@ class BasicDrone(Node):
         """Private function to spin ROS (this lets it check for callbacks)"""
         rclpy.spin(self, executor=MultiThreadedExecutor())
   
+    # TODO make this a timer callback (?)
     def _publish_position(self):
         """Publish the desired target position to the drone"""
         # Run at 30Hz
@@ -272,4 +289,6 @@ class BasicDrone(Node):
 
         while(rclpy.ok()):
             r.sleep()
-            self._local_pos_pub.publish(self._local_target_pos)
+            if self._local_target_pos is not None:
+                self._local_target_pos.header.stamp = self.get_clock().now().to_msg()
+                self._local_pos_pub.publish(self._local_target_pos)

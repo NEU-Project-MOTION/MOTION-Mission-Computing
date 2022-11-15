@@ -49,7 +49,10 @@ def parse_jinja_model(name):
                 "serial_baudrate": "", # For HITL
                 "hil_mode": "0", # For HITL
                 "include_camera": True,
-                "camera_tilt": 0.0}
+                "camera_tilt": 0.0,
+                "fisheye_camera": False,
+                "front_light": True,
+                }
 
     tmp_path = f'/tmp/{name}.sdf'
     templateFilePath = jinja2.FileSystemLoader(os.path.dirname(file_path))
@@ -95,7 +98,7 @@ def generate_launch_description():
                         'launch/gzserver.launch.py')
                     ),
                     launch_arguments={
-                        'world': "franklin_park_cluttered.world",
+                        'world': "edgar_mine.world",
                         'verbose': "true", 
                     }.items(),
 
@@ -117,7 +120,7 @@ def generate_launch_description():
                     "-entity", namespace, "-file", parse_jinja_model(namespace),
                     "-robot_namespace", namespace,
                     "-spawn_service_timeout", "120.0",
-                    "-x", "0", "-y", "0", "-z", "0.15",
+                    "-x", "0", "-y", "0", "-z", "0.15", "-R", "0", "-P", "0", "-Y", "3.14159"
                 ],
                 output="screen",
             )

@@ -6,14 +6,14 @@
       <pose>0 0 0 0 -0 0</pose>
       <inertial>
         <pose>-0.002999 0.000926 0.006638 0 -0 0</pose>
-        <mass>1.5</mass>
+        <mass>1.4</mass>
         <inertia>
           <ixx>0.029125</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyy>0.029125</iyy>
           <iyz>0</iyz>
-          <izz>0.055225</izz>
+          <izz>0.045225</izz>
         </inertia>
       </inertial>
       <collision name='base_link_collision'>
@@ -89,9 +89,53 @@
       </axis>
     </joint>
 
+    {% if front_light %}
+    <link name="front_light_link">
+      <pose>0.08 0 0.0186 0 -1.57 0</pose>
+      <gravity>0</gravity>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>1e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1e-06</izz>
+        </inertia>
+      </inertial>
+
+      <light type="spot" name="front_light">
+        <pose>0 0 0 0 0 0</pose>
+        <intensity>2</intensity>
+        <attenuation>
+          <range>20</range>
+          <linear>0.01</linear>
+          <constant>1</constant>
+          <quadratic>0</quadratic>
+        </attenuation>
+        <cast_shadows>false</cast_shadows>
+        <spot>
+          <inner_angle>0</inner_angle>
+          <outer_angle>1.57</outer_angle>
+          <falloff>1</falloff>
+        </spot>
+      </light>
+    </link>
+
+    <joint name='front_light_joint' type='fixed'>
+      <child>front_light_link</child>
+      <parent>base_link</parent>
+    </joint>
+
+    {% endif %}
+
     {% if include_camera %}
+
     <link name="realsense_link">
       <pose>0.052 0 0.0186 0 {{ camera_tilt }} 0</pose>
+      <gravity>0</gravity>
       <visual name="realsense_link_visual">
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
@@ -200,28 +244,10 @@
         <visualize>0</visualize>
       </sensor>
     </link>
-
     <joint name='realsense_joint' type='fixed'>
       <child>realsense_link</child>
       <parent>base_link</parent>
-      <axis>
-        <xyz>0 1 0</xyz>
-        <limit>
-          <lower>-0.610865</lower>
-          <upper>1.5708</upper>
-          <effort>100</effort>
-          <velocity>100</velocity>
-        </limit>
-        <dynamics>
-          <damping>0.004</damping>
-          <friction>0.4</friction>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>0</use_parent_model_frame>
-      </axis>
     </joint>
-
     <plugin name="camera" filename="librealsense_gazebo_plugin.so">
       <prefix>camera</prefix>
       <depthUpdateRate>10.0</depthUpdateRate>
@@ -248,7 +274,90 @@
     </plugin>
 
     {% endif %}
-    
+
+    {% if fisheye_camera %}
+
+    <!-- downwards fisheye camera -->
+    <joint name='fisheye_camera_joint' type='fixed'>
+      <child>fisheye_camera_link</child>
+      <parent>base_link</parent>
+    </joint>
+    <link name="fisheye_camera_link">
+      <pose>-.09 0 -.04 0 1.570 0</pose>
+      <gravity>0</gravity>
+      <visual name="fisheye_camera_link_visual">
+        <pose>-0.04 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://robots/frog_v2/meshes/D435.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <inertial>
+        <pose>-0 0 0 0 -0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>4.3008e-05</ixx>
+          <ixy>3.1633e-07</ixy>
+          <ixz>-1.3724e-07</ixz>
+          <iyy>5.2016e-06</iyy>
+          <iyz>1.916e-08</iyz>
+          <izz>4.2419e-05</izz>
+        </inertia>
+      </inertial>
+      <sensor type="wideanglecamera" name="fisheye_camera">
+        <update_rate>30.0</update_rate>
+        <camera name="fisheye">
+          <horizontal_fov>2.96706</horizontal_fov>
+          <image>
+            <width>848</width>
+            <height>800</height>
+            <format>L8</format>
+          </image>
+          <lens>
+          <type>custom</type>
+          <!-- manually defined mapping function r = c1*f*fun(theta/c2 + c3) -->
+          <!-- More information here: https://en.wikipedia.org/wiki/Fisheye_lens#Mapping_function -->
+          <custom_function>
+            <c1>1.05</c1>   <!-- linear scaling -->
+            <c2>4</c2>      <!-- angle scaling -->
+            <f>1.0</f>      <!-- one more scaling parameter -->
+            <fun>sin</fun>  <!-- one of sin,tan,id -->
+          </custom_function>            
+          <scale_to_hfov>true</scale_to_hfov>
+            <cutoff_angle>2.96706</cutoff_angle>
+            <env_texture_size>512</env_texture_size>
+          </lens>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name="fisheye_camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>drone/fisheye_camera</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+    </link>
+
+    {% endif %}
+
+
 
     <link name='prop_1'>
       <pose>0.23937 -0.23937 0.073136 0 -0 1.5708</pose>
@@ -264,7 +373,7 @@
           <izz>0.000274004</izz>
         </inertia>
       </inertial>
-      <collision name='prop_1_collision'>
+      <!-- <collision name='prop_1_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -272,7 +381,7 @@
             <uri>model://robots/frog_v2/meshes/prop_1_col.STL</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision> -->
       <visual name='prop_1_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
@@ -328,7 +437,7 @@
           <izz>0.000274004</izz>
         </inertia>
       </inertial>
-      <collision name='prop_2_collision'>
+      <!-- <collision name='prop_2_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -336,7 +445,7 @@
             <uri>model://robots/frog_v2/meshes/prop_2_col.STL</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision> -->
       <visual name='prop_2_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
@@ -392,7 +501,7 @@
           <izz>0.000274004</izz>
         </inertia>
       </inertial>
-      <collision name='prop_3_collision'>
+      <!-- <collision name='prop_3_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -400,7 +509,7 @@
             <uri>model://robots/frog_v2/meshes/prop_3_col.STL</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision> -->
       <visual name='prop_3_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
@@ -456,7 +565,7 @@
           <izz>0.000274004</izz>
         </inertia>
       </inertial>
-      <collision name='prop_4_collision'>
+      <!-- <collision name='prop_4_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
@@ -464,7 +573,7 @@
             <uri>model://robots/frog_v2/meshes/prop_4_col.STL</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision> -->
       <visual name='prop_4_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>

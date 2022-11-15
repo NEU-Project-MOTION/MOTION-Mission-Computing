@@ -71,7 +71,6 @@
       device_type: "d4."
       camera_name: "D435"
 
-
       unite_imu_method: 0
       enable_depth: true
       enable_color: true
