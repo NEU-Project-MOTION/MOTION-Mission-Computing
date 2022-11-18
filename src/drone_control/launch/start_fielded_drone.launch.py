@@ -32,17 +32,17 @@ def generate_launch_description():
         # Launch realsense T265 node
         Node(
             package="realsense2_camera",
-            executable="t265_camera_node",
+            executable="realsense2_camera_node",
             output="screen",
             namespace=f"{namespace}/T265",
-            arguments=['--ros-args', '--log-level', 'DEBUG'],
+#            arguments=['--ros-args', '--log-level', 'DEBUG'],
             parameters=[config],
             respawn=True
             ),
         # Launch realsense D435i node
         Node(
             package="realsense2_camera",
-            executable="d435i_camera_node",
+            executable="realsense2_camera_node",
             output="screen",
             namespace=f"{namespace}/D435",
             parameters=[config],

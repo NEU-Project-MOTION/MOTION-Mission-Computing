@@ -40,8 +40,8 @@ class VisionBridge : public rclcpp::Node
             return;
 
         // Verify new odom data is coming consistently
-        if((this->now()-last_callback_time_) > rclcpp::Duration(500ms) ){
-            RCLCPP_WARN_STREAM(this->get_logger(), "Stopped receiving data from T265");
+        if((this->now()-last_callback_time_) > rclcpp::Duration(400ms) ){
+            RCLCPP_WARN(this->get_logger(), "Stopped receiving data from T265 (%.2fs)", (this->now()-last_callback_time_).seconds());
             system_status_ = MAV_STATE::MAV_STATE_FLIGHT_TERMINATION;
         }
 

@@ -56,6 +56,9 @@
       enable_fisheye1: false
       enable_fisheye2: false
 
+      enable_gyro: false
+      enable_accel: false
+
       tf_publish_rate: 50.0 
       pose_fps: 200 
       pose_enabled: true 
